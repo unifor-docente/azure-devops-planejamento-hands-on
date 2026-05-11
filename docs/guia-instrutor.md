@@ -43,10 +43,10 @@ projeto rastreavel: backlog, fluxo, sprint, indicadores e entrega.
 | Etapa | Tempo |
 | --- | --- |
 | Contexto e divisao das equipes | 5 min |
-| Criacao dos projetos | 10 min |
+| Acesso aos projetos e primeira pipeline | 10 min |
 | Backlog e hierarquia | 25 min |
 | Board, sprint e estados | 15 min |
-| Pipeline | 15 min |
+| Segunda execucao da pipeline | 15 min |
 | Dashboard | 20 min |
 | Apresentacao rapida | 15 min |
 
@@ -65,13 +65,27 @@ Use uma escala simples de 0 a 2 para cada criterio:
 
 ## Teste sugerido durante a aula
 
-Peca para cada equipe executar a pipeline duas vezes:
+Como os primeiros pipelines ja foram executados pelo instrutor, peca para cada
+equipe comparar a execucao inicial com uma nova execucao feita por eles:
 
-1. Primeira execucao em `homologacao`, com a nota `Primeira validacao da equipe`.
-2. Segunda execucao em `producao-demo`, com a nota `Entrega simulada para apresentacao`.
+1. Abrir a primeira execucao criada pelo instrutor.
+2. Identificar testes, validacao, build, artefato e deploy simulado.
+3. Executar novamente em `homologacao`, com a nota `Primeira validacao da equipe`.
+4. Executar uma segunda vez em `producao-demo`, com a nota `Entrega simulada para apresentacao`.
 
 Depois, cada equipe deve abrir o historico da pipeline, comparar as duas
 execucoes e identificar o artefato publicado.
+
+## Sequencia recomendada para conduzir
+
+1. Mostre rapidamente os 4 projetos ja criados.
+2. Mostre uma pipeline que ja rodou e destaque logs e artefato.
+3. Direcione cada equipe para seu projeto.
+4. Peca para criarem o backlog usando o roteiro por equipe.
+5. Peca para movimentarem itens no board.
+6. Peca para executarem a pipeline com parametros.
+7. Peca para criarem consultas e dashboard.
+8. Feche com comparacao entre Basic, Agile, Scrum e CMMI.
 
 ## Possiveis dificuldades
 

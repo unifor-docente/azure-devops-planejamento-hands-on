@@ -6,7 +6,9 @@
 - [ ] Pelo menos uma sprint ou iteracao configurada.
 - [ ] Board com itens em estados diferentes.
 - [ ] Pipeline criada a partir do YAML da equipe.
+- [ ] Primeira execucao da pipeline revisada.
 - [ ] Pipeline executada com sucesso.
+- [ ] Parametros de ambiente e nota da entrega preenchidos.
 - [ ] Artefato publicado pela pipeline.
 - [ ] Deploy simulado concluido na pipeline.
 - [ ] Consulta salva em Shared Queries.
