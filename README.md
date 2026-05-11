@@ -17,12 +17,12 @@ diferente.
 ## Como usar na aula
 
 1. Publique este diretorio como um repositorio publico no GitHub, por exemplo
-   `azure-devops-planejamento-hands-on`.
+   `azure-devops-planejamento-hands-on`. (Concluído)
 2. No Azure DevOps, cada equipe cria um projeto usando o processo sorteado:
    Basic, Agile, Scrum ou CMMI.
 3. Cada equipe cria o backlog seguindo o roteiro em `docs/processos`.
 4. Cada equipe cria uma pipeline apontando para o YAML correspondente ao seu
-   processo.
+   processo. (Concluído)
 5. Cada equipe monta um dashboard com widgets de Boards e Pipelines.
 
 O codigo e propositalmente simples. A aula deve concentrar a atencao nos
