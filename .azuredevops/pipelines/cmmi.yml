@@ -51,3 +51,9 @@ steps:
       targetPath: dist/cmmi-governance
       artifact: $(artifactName)
 
+  - script: |
+      echo "Simulando deploy do Sistema Governamental..."
+      echo "Origem: monorepo publico no GitHub"
+      echo "Artefato: $(artifactName)"
+      echo "Nenhum recurso Azure foi criado."
+    displayName: Simular deploy

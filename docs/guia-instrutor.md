@@ -2,7 +2,7 @@
 
 ## Preparacao antes da aula
 
-1. Publique este diretorio em um repositorio GitHub.
+1. Publique este diretorio em um repositorio publico no GitHub.
 2. Crie ou confirme a organizacao no Azure DevOps.
 3. Garanta que os alunos consigam criar projetos na organizacao.
 4. Compartilhe o link do GitHub e o link da organizacao Azure DevOps.
@@ -21,6 +21,14 @@ Nomes sugeridos para os projetos:
 O objetivo da pratica nao e programar. O repositorio ja possui codigo, testes e
 pipelines. A responsabilidade de cada equipe e transformar uma ideia em um
 projeto rastreavel: backlog, fluxo, sprint, indicadores e entrega.
+
+## Escopo tecnico da demonstracao
+
+- Nao criar recursos reais no Azure.
+- Nao usar Terraform nesta pratica.
+- Nao criar Service Connection de Azure Resource Manager.
+- Usar apenas a conexao do Azure DevOps com o GitHub publico.
+- Demonstrar build, teste, artefato e deploy simulado pelo historico da pipeline.
 
 ## Pontos de observacao
 
@@ -63,4 +71,5 @@ Use uma escala simples de 0 a 2 para cada criterio:
   criados no projeto correto.
 - Pipeline sem permissao: conferir Project settings > Pipelines > Settings e a
   autorizacao do repositorio GitHub.
-
+- Duvida sobre Service Connection: reforcar que a pratica nao usa deploy real em
+  Azure, portanto nao precisa de conexao com assinatura Azure.

@@ -3,8 +3,8 @@
 ## Objetivo
 
 Simular um projeto real no Azure DevOps usando Boards, backlog, sprints,
-pipelines, consultas e dashboards. O codigo do GitHub ja esta pronto para que a
-equipe concentre o esforco na gestao do projeto.
+pipelines, consultas e dashboards. O codigo esta em um monorepo publico no
+GitHub para que a equipe concentre o esforco na gestao do projeto.
 
 ## Divisao da turma
 
@@ -89,16 +89,21 @@ Tempo sugerido: 15 minutos.
 1. Acesse Pipelines.
 2. Clique em New pipeline.
 3. Escolha GitHub.
-4. Selecione o monorepo da aula.
+4. Selecione o monorepo publico da aula.
 5. Escolha Existing Azure Pipelines YAML file.
 6. Informe o YAML correspondente a equipe.
 7. Execute a pipeline.
+
+Nao e necessario criar assinatura Azure, Service Connection de Azure Resource
+Manager, Terraform ou recurso real na Azure. A unica autorizacao esperada e a
+conexao do Azure DevOps com o repositorio GitHub.
 
 O pipeline faz tres coisas simples:
 
 - Executa testes de verificacao do monorepo.
 - Valida o miniapp da equipe.
 - Publica um artefato estatico para evidenciar a entrega.
+- Executa um deploy simulado, apenas para demonstrar logs e historico.
 
 ## Parte 5: Criar consultas e dashboard
 
@@ -140,4 +145,3 @@ Cada equipe apresenta em 3 minutos:
 - Pipeline executada pelo menos uma vez.
 - Dashboard com pelo menos 4 widgets.
 - Breve explicacao da equipe sobre a diferenca do seu processo.
-

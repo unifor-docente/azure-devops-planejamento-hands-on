@@ -16,7 +16,7 @@ diferente.
 
 ## Como usar na aula
 
-1. Publique este diretorio como um repositorio GitHub, por exemplo
+1. Publique este diretorio como um repositorio publico no GitHub, por exemplo
    `azure-devops-planejamento-hands-on`.
 2. No Azure DevOps, cada equipe cria um projeto usando o processo sorteado:
    Basic, Agile, Scrum ou CMMI.
@@ -28,6 +28,19 @@ diferente.
 O codigo e propositalmente simples. A aula deve concentrar a atencao nos
 artefatos de gestao: backlog, hierarquia de work items, estados, sprint,
 rastreabilidade, consultas, dashboards e indicadores.
+
+## Modelo de pipeline
+
+As pipelines usam o repositorio publico do GitHub como fonte e nao exigem
+Service Connection de Azure, assinatura Azure, Terraform ou deploy real.
+
+Cada pipeline executa:
+
+- testes automatizados;
+- validacao do miniapp;
+- build estatico;
+- publicacao de artefato;
+- deploy simulado apenas com logs didaticos.
 
 ## Validacao local
 
@@ -48,4 +61,3 @@ O build gera uma pasta `dist` com os quatro miniapps estaticos.
 - `docs/processos/*.md`: backlog e tarefas por processo.
 - `docs/queries/*.wiql`: consultas sugeridas para Azure Boards.
 - `docs/templates/dashboard-markdown.md`: texto para widget Markdown do dashboard.
-
