@@ -29,6 +29,7 @@ projeto rastreavel: backlog, fluxo, sprint, indicadores e entrega.
 - Nao criar Service Connection de Azure Resource Manager.
 - Usar apenas a conexao do Azure DevOps com o GitHub publico.
 - Demonstrar build, teste, artefato e deploy simulado pelo historico da pipeline.
+- Usar os parametros da execucao manual para simular ambiente e nota da entrega.
 
 ## Pontos de observacao
 
@@ -61,6 +62,16 @@ Use uma escala simples de 0 a 2 para cada criterio:
 | Pipeline | Nao executou | Executou com ajuda | Executou e entendeu |
 | Dashboard | Ausente | Poucos widgets | Apoia decisao |
 | Apresentacao | Sem clareza | Parcial | Clara e objetiva |
+
+## Teste sugerido durante a aula
+
+Peca para cada equipe executar a pipeline duas vezes:
+
+1. Primeira execucao em `homologacao`, com a nota `Primeira validacao da equipe`.
+2. Segunda execucao em `producao-demo`, com a nota `Entrega simulada para apresentacao`.
+
+Depois, cada equipe deve abrir o historico da pipeline, comparar as duas
+execucoes e identificar o artefato publicado.
 
 ## Possiveis dificuldades
 

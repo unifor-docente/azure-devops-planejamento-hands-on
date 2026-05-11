@@ -40,7 +40,8 @@ Cada pipeline executa:
 - validacao do miniapp;
 - build estatico;
 - publicacao de artefato;
-- deploy simulado apenas com logs didaticos.
+- deploy simulado apenas com logs didaticos;
+- parametros manuais para ambiente simulado e nota de entrega.
 
 ## Validacao local
 

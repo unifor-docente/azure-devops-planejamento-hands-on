@@ -93,17 +93,24 @@ Tempo sugerido: 15 minutos.
 5. Escolha Existing Azure Pipelines YAML file.
 6. Informe o YAML correspondente a equipe.
 7. Execute a pipeline.
+8. Na execucao manual, escolha o ambiente simulado e preencha a nota da entrega.
 
 Nao e necessario criar assinatura Azure, Service Connection de Azure Resource
 Manager, Terraform ou recurso real na Azure. A unica autorizacao esperada e a
 conexao do Azure DevOps com o repositorio GitHub.
 
-O pipeline faz tres coisas simples:
+O pipeline demonstra cinco pontos:
 
 - Executa testes de verificacao do monorepo.
 - Valida o miniapp da equipe.
 - Publica um artefato estatico para evidenciar a entrega.
 - Executa um deploy simulado, apenas para demonstrar logs e historico.
+- Permite que cada equipe registre uma nota de entrega no momento da execucao.
+
+Sugestao para a primeira execucao:
+
+- Ambiente simulado: `homologacao`.
+- Nota da entrega: `Primeira validacao da equipe no Azure DevOps`.
 
 ## Parte 5: Criar consultas e dashboard
 

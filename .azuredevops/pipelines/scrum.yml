@@ -1,5 +1,19 @@
 name: scrum-banking-$(Date:yyyyMMdd)$(Rev:.r)
 
+parameters:
+  - name: simulatedEnvironment
+    displayName: Ambiente simulado
+    type: string
+    default: homologacao
+    values:
+      - desenvolvimento
+      - homologacao
+      - producao-demo
+  - name: releaseNote
+    displayName: Nota da entrega
+    type: string
+    default: Entrega simulada do Aplicativo Bancario PIX
+
 trigger:
   branches:
     include:
@@ -55,5 +69,7 @@ steps:
       echo "Simulando deploy do Aplicativo Bancario PIX..."
       echo "Origem: monorepo publico no GitHub"
       echo "Artefato: $(artifactName)"
+      echo "Ambiente: ${{ parameters.simulatedEnvironment }}"
+      echo "Nota: ${{ parameters.releaseNote }}"
       echo "Nenhum recurso Azure foi criado."
     displayName: Simular deploy
