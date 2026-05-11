@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sistema Governamental</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <main class="shell">
+    <section class="hero">
+      <p class="eyebrow">CMMI • Epic → Requirement → Change Request → Task</p>
+      <h1>Sistema Governamental</h1>
+      <p>Controle formal de acesso com registro de mudancas, aprovacao e auditoria.</p>
+    </section>
+
+    <section class="governance-grid">
+      <article class="panel">
+        <p class="eyebrow">Requisito</p>
+        <h2>Controle de acesso por perfil</h2>
+        <p>Perfis administrativos devem seguir trilha de aprovacao antes da ativacao.</p>
+      </article>
+
+      <article class="panel">
+        <p class="eyebrow">Indicadores</p>
+        <dl>
+          <div>
+            <dt>Change Requests</dt>
+            <dd id="changeTotal">0</dd>
+          </div>
+          <div>
+            <dt>Aprovadas</dt>
+            <dd id="approvedTotal">0</dd>
+          </div>
+        </dl>
+      </article>
+    </section>
+
+    <section class="panel">
+      <div class="panel-header">
+        <h2>Solicitacoes de mudanca</h2>
+        <span class="badge">Auditoria</span>
+      </div>
+      <div id="changeList" class="change-list"></div>
+    </section>
+  </main>
+  <script src="./app.js"></script>
+</body>
+</html>
+

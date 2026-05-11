@@ -1,0 +1,53 @@
+name: basic-portal-$(Date:yyyyMMdd)$(Rev:.r)
+
+trigger:
+  branches:
+    include:
+      - main
+  paths:
+    include:
+      - apps/basic-portal/**
+      - scripts/**
+      - tests/**
+      - package.json
+      - .azuredevops/pipelines/basic.yml
+
+pr:
+  branches:
+    include:
+      - main
+  paths:
+    include:
+      - apps/basic-portal/**
+      - scripts/**
+      - tests/**
+      - package.json
+
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+  appPath: apps/basic-portal
+  artifactName: basic-portal-site
+
+steps:
+  - task: NodeTool@0
+    displayName: Usar Node.js 20
+    inputs:
+      versionSpec: 20.x
+
+  - script: npm test
+    displayName: Executar testes automatizados
+
+  - script: node scripts/validate-project.mjs $(appPath)
+    displayName: Validar Portal do Cliente
+
+  - script: node scripts/build.mjs $(appPath)
+    displayName: Gerar site estatico
+
+  - task: PublishPipelineArtifact@1
+    displayName: Publicar artefato
+    inputs:
+      targetPath: dist/basic-portal
+      artifact: $(artifactName)
+

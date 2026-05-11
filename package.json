@@ -1,0 +1,16 @@
+{
+  "name": "azure-devops-planejamento-hands-on",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Monorepo didatico para aula de Azure DevOps com foco em planejamento, boards, dashboards e pipelines.",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "validate": "node scripts/validate-projects.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
+

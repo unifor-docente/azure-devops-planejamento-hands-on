@@ -1,0 +1,16 @@
+SELECT
+  [System.Id],
+  [System.WorkItemType],
+  [System.Title],
+  [System.State],
+  [System.AssignedTo],
+  [System.Tags]
+FROM WorkItems
+WHERE
+  [System.TeamProject] = @project
+  AND [System.WorkItemType] IN ('Epic', 'Feature', 'User Story', 'Task')
+  AND [System.State] <> 'Closed'
+ORDER BY
+  [System.WorkItemType],
+  [System.ChangedDate] DESC
+

@@ -1,0 +1,53 @@
+name: scrum-banking-$(Date:yyyyMMdd)$(Rev:.r)
+
+trigger:
+  branches:
+    include:
+      - main
+  paths:
+    include:
+      - apps/scrum-banking/**
+      - scripts/**
+      - tests/**
+      - package.json
+      - .azuredevops/pipelines/scrum.yml
+
+pr:
+  branches:
+    include:
+      - main
+  paths:
+    include:
+      - apps/scrum-banking/**
+      - scripts/**
+      - tests/**
+      - package.json
+
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+  appPath: apps/scrum-banking
+  artifactName: scrum-banking-site
+
+steps:
+  - task: NodeTool@0
+    displayName: Usar Node.js 20
+    inputs:
+      versionSpec: 20.x
+
+  - script: npm test
+    displayName: Executar testes automatizados
+
+  - script: node scripts/validate-project.mjs $(appPath)
+    displayName: Validar Aplicativo Bancario PIX
+
+  - script: node scripts/build.mjs $(appPath)
+    displayName: Gerar site estatico
+
+  - task: PublishPipelineArtifact@1
+    displayName: Publicar artefato
+    inputs:
+      targetPath: dist/scrum-banking
+      artifact: $(artifactName)
+

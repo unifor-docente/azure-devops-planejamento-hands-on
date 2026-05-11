@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Aplicativo Bancario PIX</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <main class="shell">
+    <section class="hero">
+      <p class="eyebrow">Scrum • Epic → Feature → PBI → Task</p>
+      <h1>Aplicativo Bancario PIX</h1>
+      <p>Fluxo simplificado para planejar, executar e validar uma entrega curta em sprint.</p>
+    </section>
+
+    <section class="transfer">
+      <form id="pixForm">
+        <label>
+          Chave PIX
+          <input id="pixKey" name="pixKey" value="cliente@email.com" autocomplete="off">
+        </label>
+        <label>
+          Valor
+          <input id="amount" name="amount" value="150.00" inputmode="decimal">
+        </label>
+        <button type="submit">Validar transferencia</button>
+      </form>
+
+      <aside class="receipt" aria-live="polite">
+        <p class="eyebrow">Resumo</p>
+        <h2 id="resultTitle">Aguardando validacao</h2>
+        <p id="resultText">Preencha os dados para simular a transferencia.</p>
+      </aside>
+    </section>
+  </main>
+  <script src="./app.js"></script>
+</body>
+</html>
+

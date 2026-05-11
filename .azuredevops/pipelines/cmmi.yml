@@ -1,0 +1,53 @@
+name: cmmi-governance-$(Date:yyyyMMdd)$(Rev:.r)
+
+trigger:
+  branches:
+    include:
+      - main
+  paths:
+    include:
+      - apps/cmmi-governance/**
+      - scripts/**
+      - tests/**
+      - package.json
+      - .azuredevops/pipelines/cmmi.yml
+
+pr:
+  branches:
+    include:
+      - main
+  paths:
+    include:
+      - apps/cmmi-governance/**
+      - scripts/**
+      - tests/**
+      - package.json
+
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+  appPath: apps/cmmi-governance
+  artifactName: cmmi-governance-site
+
+steps:
+  - task: NodeTool@0
+    displayName: Usar Node.js 20
+    inputs:
+      versionSpec: 20.x
+
+  - script: npm test
+    displayName: Executar testes automatizados
+
+  - script: node scripts/validate-project.mjs $(appPath)
+    displayName: Validar Sistema Governamental
+
+  - script: node scripts/build.mjs $(appPath)
+    displayName: Gerar site estatico
+
+  - task: PublishPipelineArtifact@1
+    displayName: Publicar artefato
+    inputs:
+      targetPath: dist/cmmi-governance
+      artifact: $(artifactName)
+

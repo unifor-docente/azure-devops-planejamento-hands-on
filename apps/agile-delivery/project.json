@@ -1,0 +1,27 @@
+{
+  "id": "agile-delivery",
+  "name": "Sistema de Delivery",
+  "process": "Agile",
+  "scenario": "Produto digital para acompanhar pedidos, atualizar status e melhorar a comunicacao com o cliente.",
+  "workItemTypes": ["Epic", "Feature", "User Story", "Task"],
+  "metrics": [
+    {
+      "name": "Velocity",
+      "goal": "Comparar story points planejados e entregues por sprint."
+    },
+    {
+      "name": "Lead Time",
+      "goal": "Medir o tempo entre a criacao da user story e sua conclusao."
+    },
+    {
+      "name": "Cumulative Flow",
+      "goal": "Identificar gargalos no fluxo entre New, Active, Resolved e Closed."
+    }
+  ],
+  "qualityGates": [
+    "Historico de pedido visivel",
+    "Status do pedido atualizado",
+    "Pipeline executado com sucesso"
+  ]
+}
+

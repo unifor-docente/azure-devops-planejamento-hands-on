@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sistema de Delivery</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <main class="shell">
+    <section class="hero">
+      <p class="eyebrow">Agile • Epic → Feature → User Story → Task</p>
+      <h1>Sistema de Delivery</h1>
+      <p>Visao de pedido para reduzir incerteza do cliente e apoiar decisoes do time.</p>
+    </section>
+
+    <section class="order-panel">
+      <div>
+        <p class="eyebrow">Pedido #A1029</p>
+        <h2>Combo executivo</h2>
+        <p class="muted">Previsao de entrega: <strong id="eta">32 min</strong></p>
+      </div>
+      <button id="advanceButton" type="button">Avancar status</button>
+    </section>
+
+    <section class="timeline" id="timeline" aria-label="Linha do tempo do pedido"></section>
+  </main>
+  <script src="./app.js"></script>
+</body>
+</html>
+

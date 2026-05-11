@@ -1,0 +1,27 @@
+{
+  "id": "cmmi-governance",
+  "name": "Sistema Governamental",
+  "process": "CMMI",
+  "scenario": "Sistema com fluxo formal para controle de acesso, solicitacoes de mudanca e registro de aprovacao.",
+  "workItemTypes": ["Epic", "Requirement", "Change Request", "Task"],
+  "metrics": [
+    {
+      "name": "Lead Time de Mudanca",
+      "goal": "Medir o tempo entre a abertura e a aprovacao de change requests."
+    },
+    {
+      "name": "Requisitos Ativos",
+      "goal": "Monitorar requisitos ainda em analise ou implementacao."
+    },
+    {
+      "name": "Rastreabilidade",
+      "goal": "Verificar se cada tarefa esta vinculada a requisito ou mudanca."
+    }
+  ],
+  "qualityGates": [
+    "Registro de solicitacao exibido",
+    "Status de aprovacao visivel",
+    "Pipeline executado com sucesso"
+  ]
+}
+

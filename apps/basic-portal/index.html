@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Portal do Cliente</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <main class="shell">
+    <section class="hero">
+      <p class="eyebrow">Basic • Epic → Issue → Task</p>
+      <h1>Portal do Cliente</h1>
+      <p>Acompanhamento objetivo de solicitacoes, prazos e comunicados para clientes.</p>
+    </section>
+
+    <section class="summary-grid" aria-label="Resumo operacional">
+      <article>
+        <span class="label">Solicitacoes</span>
+        <strong id="totalRequests">0</strong>
+      </article>
+      <article>
+        <span class="label">Em atendimento</span>
+        <strong id="activeRequests">0</strong>
+      </article>
+      <article>
+        <span class="label">Concluidas</span>
+        <strong id="doneRequests">0</strong>
+      </article>
+    </section>
+
+    <section class="panel">
+      <div class="panel-header">
+        <h2>Solicitacoes recentes</h2>
+        <span class="badge">MVP</span>
+      </div>
+      <div id="requestList" class="request-list"></div>
+    </section>
+  </main>
+  <script src="./app.js"></script>
+</body>
+</html>
+

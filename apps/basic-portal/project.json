@@ -1,0 +1,27 @@
+{
+  "id": "basic-portal",
+  "name": "Portal do Cliente",
+  "process": "Basic",
+  "scenario": "Portal simples para o cliente consultar solicitacoes, prazos e status de atendimento.",
+  "workItemTypes": ["Epic", "Issue", "Task"],
+  "metrics": [
+    {
+      "name": "Throughput",
+      "goal": "Medir quantas issues foram concluidas na semana."
+    },
+    {
+      "name": "Cycle Time",
+      "goal": "Acompanhar quanto tempo uma issue leva entre Doing e Done."
+    },
+    {
+      "name": "Build Success Rate",
+      "goal": "Verificar estabilidade do pipeline do portal."
+    }
+  ],
+  "qualityGates": [
+    "Tela inicial publicada",
+    "Lista de solicitacoes mockada",
+    "Pipeline executado com sucesso"
+  ]
+}
+

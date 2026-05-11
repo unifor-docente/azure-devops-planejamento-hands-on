@@ -1,0 +1,27 @@
+{
+  "id": "scrum-banking",
+  "name": "Aplicativo Bancario PIX",
+  "process": "Scrum",
+  "scenario": "Aplicativo bancario com simulacao de transferencia PIX e validacoes basicas para sprint curta.",
+  "workItemTypes": ["Epic", "Feature", "Product Backlog Item", "Task"],
+  "metrics": [
+    {
+      "name": "Burndown",
+      "goal": "Acompanhar trabalho restante dentro da sprint."
+    },
+    {
+      "name": "Velocity",
+      "goal": "Comparar capacidade planejada e entrega real de PBIs."
+    },
+    {
+      "name": "Bugs por Sprint",
+      "goal": "Monitorar defeitos encontrados durante a validacao."
+    }
+  ],
+  "qualityGates": [
+    "Validacao de chave PIX",
+    "Resumo da transferencia visivel",
+    "Pipeline executado com sucesso"
+  ]
+}
+
