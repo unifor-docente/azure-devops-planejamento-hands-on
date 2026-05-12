@@ -22,3 +22,10 @@ Pipelines e Dashboard.
 - Ha gargalo em algum estado do board?
 - A pipeline confirma que a entrega esta em condicao minima de validacao?
 - O que mudou entre a primeira execucao e a execucao feita pela equipe?
+
+## Evidencias
+
+- Consulta principal salva em `Shared Queries`.
+- Graficos criados a partir de consulta `Flat list`.
+- Pipeline executada pela equipe.
+- Link da execucao registrado em work item.

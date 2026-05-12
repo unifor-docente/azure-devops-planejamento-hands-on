@@ -16,6 +16,9 @@
 - [ ] Parametros de ambiente e nota da entrega preenchidos.
 - [ ] Artefato publicado pela pipeline.
 - [ ] Deploy simulado concluido na pipeline.
+- [ ] Pasta `Dashboard da Equipe` criada em Shared Queries.
+- [ ] Consulta principal criada como `Flat list of work items`.
 - [ ] Consulta salva em Shared Queries.
+- [ ] Pelo menos dois graficos criados a partir da consulta.
 - [ ] Dashboard criado com widgets de Boards e Pipelines.
 - [ ] Equipe pronta para apresentar aprendizados.

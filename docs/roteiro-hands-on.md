@@ -194,13 +194,22 @@ Execucao opcional para apresentacao:
 
 Tempo sugerido: 30 minutos.
 
+Use o guia `docs/dashboard-passo-a-passo.md`. Ele substitui a tentativa de
+montar dashboard colando WIQL diretamente.
+
+Fluxo correto:
+
 1. Acesse Boards > Queries.
-2. Crie uma consulta com base no arquivo `.wiql` do seu processo em
-   `docs/queries`.
-3. Salve como consulta compartilhada.
-4. Acesse Dashboards.
-5. Crie um dashboard da equipe.
-6. Adicione widgets.
+2. Crie uma consulta pela interface do Azure Boards.
+3. Use o tipo `Flat list of work items`.
+4. Salve a consulta em `Shared Queries > Dashboard da Equipe`.
+5. Crie graficos na aba Charts da consulta ou pelo widget Chart for Work Items.
+6. Acesse Dashboards.
+7. Crie um dashboard da equipe.
+8. Adicione widgets usando a consulta salva.
+
+Os arquivos `.wiql` em `docs/queries` continuam uteis como referencia dos
+filtros, mas o aluno nao precisa colar WIQL no dashboard.
 
 Widgets sugeridos:
 
@@ -244,4 +253,3 @@ Cada equipe apresenta em 4 minutos:
 - Artefato publicado identificado.
 - Dashboard com pelo menos 4 widgets.
 - Apresentacao curta comparando processo, backlog, metrica e pipeline.
-

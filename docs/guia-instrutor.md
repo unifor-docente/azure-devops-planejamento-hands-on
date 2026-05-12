@@ -31,6 +31,7 @@ indicadores, pipeline e evidencia de entrega.
 - Usar apenas a conexao do Azure DevOps com o GitHub publico.
 - Demonstrar build, teste, artefato e deploy simulado pelo historico da pipeline.
 - Usar os parametros da execucao manual para simular ambiente e nota da entrega.
+- Criar dashboards a partir de consultas salvas em `Shared Queries`, nao colando WIQL diretamente no dashboard.
 
 ## Pontos de observacao
 
@@ -93,7 +94,7 @@ execucoes e identificar o artefato publicado.
 8. Peca para movimentarem itens no board.
 9. Peca para executarem a pipeline com parametros.
 10. Peca para registrarem o link da pipeline em um work item.
-11. Peca para criarem consultas e dashboard.
+11. Peca para criarem consultas e dashboard usando `docs/dashboard-passo-a-passo.md`.
 12. Feche com comparacao entre Basic, Agile, Scrum e CMMI.
 
 ## Pontos para cobrar durante a circulacao
@@ -117,3 +118,9 @@ execucoes e identificar o artefato publicado.
   autorizacao do repositorio GitHub.
 - Duvida sobre Service Connection: reforcar que a pratica nao usa deploy real em
   Azure, portanto nao precisa de conexao com assinatura Azure.
+- Grafico nao aparece no Dashboard: conferir se a consulta e `Flat list` e foi
+  salva em `Shared Queries`.
+- Campo nao aparece no grafico: adicionar o campo nas colunas da consulta,
+  salvar e atualizar o dashboard.
+- WIQL nao funciona no Dashboard: usar WIQL apenas como referencia e criar a
+  consulta pela interface do Boards.

@@ -17,6 +17,10 @@ test('guia de campos dos work items existe', () => {
   assert.ok(existsSync('docs/campos-work-items.md'));
 });
 
+test('guia de dashboard existe', () => {
+  assert.ok(existsSync('docs/dashboard-passo-a-passo.md'));
+});
+
 test('cada processo possui guia e consulta WIQL', () => {
   const slugs = ['basic', 'agile', 'scrum', 'cmmi'];
 

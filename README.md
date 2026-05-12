@@ -60,6 +60,7 @@ O build gera uma pasta `dist` com os quatro miniapps estaticos.
 - `docs/roteiro-hands-on.md`: roteiro principal para os alunos.
 - `docs/guia-instrutor.md`: preparo e conducao da atividade.
 - `docs/campos-work-items.md`: guia de campos, estimativas e criterios.
+- `docs/dashboard-passo-a-passo.md`: instrucoes claras para consultas, graficos e dashboards.
 - `docs/processos/*.md`: backlog e tarefas por processo.
 - `docs/queries/*.wiql`: consultas sugeridas para Azure Boards.
 - `docs/templates/dashboard-markdown.md`: texto para widget Markdown do dashboard.
