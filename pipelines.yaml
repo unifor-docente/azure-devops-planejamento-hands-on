@@ -1,0 +1,49 @@
+name: monorepo-$(Date:yyyyMMdd)$(Rev:.r)
+
+trigger:
+  branches:
+    include:
+      - main
+  paths:
+    include:
+      - apps/**
+      - scripts/**
+      - tests/**
+      - package.json
+      - azure-pipelines.yml
+      - .azuredevops/pipelines/**
+
+pr:
+  branches:
+    include:
+      - main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+  - task: NodeTool@0
+    displayName: Usar Node.js 20
+    inputs:
+      versionSpec: 20.x
+
+  - script: |
+      node --version
+      npm --version
+    displayName: Conferir ambiente
+
+  - script: npm test
+    displayName: Executar testes
+
+  - script: npm run validate
+    displayName: Validar miniapps
+
+  - script: npm run build
+    displayName: Gerar artefatos estaticos
+
+  - task: PublishPipelineArtifact@1
+    displayName: Publicar artefatos
+    inputs:
+      targetPath: dist
+      artifact: monorepo-sites
+
