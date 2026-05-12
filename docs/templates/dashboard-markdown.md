@@ -9,6 +9,7 @@ Pipelines e Dashboard.
 
 - Progresso dos work items por estado.
 - Itens planejados para a sprint ou ciclo atual.
+- Itens por prioridade, risco ou bloqueio.
 - Historico de execucao da pipeline, comparando a execucao inicial com a execucao da equipe.
 - Artefato publicado e deploy simulado.
 - Bloqueios marcados com a tag `blocked`.
@@ -16,6 +17,7 @@ Pipelines e Dashboard.
 ## Perguntas para a reuniao de acompanhamento
 
 - O backlog esta priorizado?
+- Os itens possuem estimativa e criterio de aceite?
 - Existe item sem responsavel?
 - Ha gargalo em algum estado do board?
 - A pipeline confirma que a entrega esta em condicao minima de validacao?

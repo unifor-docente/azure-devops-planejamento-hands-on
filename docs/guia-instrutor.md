@@ -20,7 +20,8 @@ Nomes sugeridos para os projetos:
 
 O objetivo da pratica nao e programar. O repositorio ja possui codigo, testes e
 pipelines. A responsabilidade de cada equipe e transformar uma ideia em um
-projeto rastreavel: backlog, fluxo, sprint, indicadores e entrega.
+projeto rastreavel: backlog detalhado, campos preenchidos, fluxo, sprint,
+indicadores, pipeline e evidencia de entrega.
 
 ## Escopo tecnico da demonstracao
 
@@ -44,11 +45,13 @@ projeto rastreavel: backlog, fluxo, sprint, indicadores e entrega.
 | --- | --- |
 | Contexto e divisao das equipes | 5 min |
 | Acesso aos projetos e primeira pipeline | 10 min |
-| Backlog e hierarquia | 25 min |
-| Board, sprint e estados | 15 min |
-| Segunda execucao da pipeline | 15 min |
-| Dashboard | 20 min |
-| Apresentacao rapida | 15 min |
+| Campos, estimativas e criterios | 15 min |
+| Backlog detalhado e hierarquia | 45 min |
+| Refinamento e priorizacao | 25 min |
+| Board, sprint e estados | 25 min |
+| Segunda execucao da pipeline | 20 min |
+| Queries e dashboard | 30 min |
+| Apresentacao rapida | 20 min |
 
 ## Avaliacao rapida
 
@@ -57,7 +60,9 @@ Use uma escala simples de 0 a 2 para cada criterio:
 | Criterio | 0 | 1 | 2 |
 | --- | --- | --- | --- |
 | Processo correto | Incorreto | Parcial | Correto |
-| Hierarquia | Inexistente | Simples | Coerente |
+| Hierarquia | Inexistente | Simples | Coerente e relacionada |
+| Campos dos work items | Vazios | Parcial | Descricao, prioridade, estimativa e aceite claros |
+| Priorizacao | Ausente | Basica | Justificada por valor, risco e dependencia |
 | Board/Sprint | Nao usado | Basico | Representa fluxo real |
 | Pipeline | Nao executou | Executou com ajuda | Executou e entendeu |
 | Dashboard | Ausente | Poucos widgets | Apoia decisao |
@@ -81,11 +86,25 @@ execucoes e identificar o artefato publicado.
 1. Mostre rapidamente os 4 projetos ja criados.
 2. Mostre uma pipeline que ja rodou e destaque logs e artefato.
 3. Direcione cada equipe para seu projeto.
-4. Peca para criarem o backlog usando o roteiro por equipe.
-5. Peca para movimentarem itens no board.
-6. Peca para executarem a pipeline com parametros.
-7. Peca para criarem consultas e dashboard.
-8. Feche com comparacao entre Basic, Agile, Scrum e CMMI.
+4. Explique `docs/campos-work-items.md` antes de eles criarem os cards.
+5. Peca para criarem o backlog usando o guia detalhado do processo.
+6. Peca para preencherem descricao, prioridade, estimativa e criterios de aceite.
+7. Peca para refinarem e priorizarem: MVP, futuro, risco, bloqueio e dependencia.
+8. Peca para movimentarem itens no board.
+9. Peca para executarem a pipeline com parametros.
+10. Peca para registrarem o link da pipeline em um work item.
+11. Peca para criarem consultas e dashboard.
+12. Feche com comparacao entre Basic, Agile, Scrum e CMMI.
+
+## Pontos para cobrar durante a circulacao
+
+- O titulo do item esta claro?
+- A descricao explica o motivo do trabalho?
+- A estimativa esta coerente ou o item deveria ser quebrado?
+- A prioridade foi justificada por valor, risco ou dependencia?
+- O criterio de aceite permite dizer se o item esta pronto?
+- O item esta relacionado ao pai correto?
+- A pipeline virou evidencia registrada no backlog?
 
 ## Possiveis dificuldades
 

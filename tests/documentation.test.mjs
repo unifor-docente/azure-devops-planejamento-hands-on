@@ -13,6 +13,10 @@ test('roteiro principal existe e referencia todos os processos', () => {
   }
 });
 
+test('guia de campos dos work items existe', () => {
+  assert.ok(existsSync('docs/campos-work-items.md'));
+});
+
 test('cada processo possui guia e consulta WIQL', () => {
   const slugs = ['basic', 'agile', 'scrum', 'cmmi'];
 
@@ -21,4 +25,3 @@ test('cada processo possui guia e consulta WIQL', () => {
     assert.ok(existsSync(`docs/queries/${slug}-work-items.wiql`), `WIQL ausente: ${slug}`);
   }
 });
-

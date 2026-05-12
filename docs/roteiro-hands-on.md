@@ -6,14 +6,18 @@ Simular um projeto real no Azure DevOps usando Boards, backlog, sprints,
 pipelines, consultas e dashboards. O codigo esta em um monorepo publico no
 GitHub para que a equipe concentre o esforco na gestao do projeto.
 
+A pratica da quarta-feira, 13/05/2026, deve ir alem de "criar cards". Cada
+equipe deve preencher work items com contexto, prioridade, estimativa, criterios
+de aceite, responsaveis, tags, relacionamento e evidencia de pipeline.
+
 ## Divisao da turma
 
-| Equipe | Processo | Projeto no Azure DevOps | YAML da pipeline |
+| Equipe | Processo | Projeto no Azure DevOps | Guia detalhado |
 | --- | --- | --- | --- |
-| 1 | Basic | `01-basic-portal` | `.azuredevops/pipelines/basic.yml` |
-| 2 | Agile | `02-agile-delivery` | `.azuredevops/pipelines/agile.yml` |
-| 3 | Scrum | `03-scrum-banking` | `.azuredevops/pipelines/scrum.yml` |
-| 4 | CMMI | `04-cmmi-governance` | `.azuredevops/pipelines/cmmi.yml` |
+| 1 | Basic | `01-basic-portal` | `docs/processos/basic.md` |
+| 2 | Agile | `02-agile-delivery` | `docs/processos/agile.md` |
+| 3 | Scrum | `03-scrum-banking` | `docs/processos/scrum.md` |
+| 4 | CMMI | `04-cmmi-governance` | `docs/processos/cmmi.md` |
 
 Os projetos ja foram criados pelo instrutor com o processo correto. Cada equipe
 deve trabalhar dentro do seu projeto, usando a pipeline ja configurada como
@@ -31,6 +35,14 @@ Antes dos alunos iniciarem, o instrutor ja deve ter:
 Os alunos nao precisam criar repositorio, configurar Terraform, criar recursos
 Azure ou fazer deploy real. A pratica simula a entrega usando pipeline, artefato
 e logs.
+
+## Materiais que cada equipe deve abrir
+
+1. `docs/campos-work-items.md`: explica campos, prioridade, estimativas,
+   criterios de aceite e Definition of Done.
+2. O guia do processo da equipe em `docs/processos`.
+3. `docs/templates/checklist-projeto.md`: checklist final.
+4. `docs/templates/dashboard-markdown.md`: texto base para o dashboard.
 
 ## Parte 1: Acessar o projeto da equipe
 
@@ -51,235 +63,136 @@ Checklist:
 - Primeira execucao da pipeline localizada.
 - Artefato publicado identificado.
 
-## Atividades por equipe
+## Parte 2: Entender campos e regras de preenchimento
 
-Cada equipe deve criar o backlog abaixo e depois complementar com detalhes,
-responsaveis, estados, tags e criterios de aceite.
+Tempo sugerido: 15 minutos.
 
-### Equipe 1: Basic
+Cada equipe deve ler o guia `docs/campos-work-items.md` e combinar como vai
+preencher os itens.
 
-Projeto: `01-basic-portal`
+Campos obrigatorios para a aula:
 
-Processo: Basic
+- `Title`: nome curto e claro.
+- `Description`: problema, contexto e escopo.
+- `Assigned To`: responsavel pelo proximo passo.
+- `Priority`: importancia do item.
+- `Story Points`, `Effort`, `Size` ou `Remaining Work`, conforme o processo.
+- `Acceptance Criteria`: condicoes objetivas para aceitar a entrega.
+- `Tags`: marcadores para filtro e dashboard.
+- `Parent/Child`: relacionamento entre os niveis do backlog.
 
-Hierarquia:
+Regra pratica:
 
-```text
-Epic -> Issue -> Task
-```
+- Se o campo existir no Azure Boards, preencha o campo.
+- Se o campo nao existir no processo, coloque a informacao na descricao.
 
-Crie estes work items:
+## Parte 3: Criar backlog realista
 
-| Tipo | Titulo |
-| --- | --- |
-| Epic | Implantar Portal do Cliente |
-| Issue | Tela de Login |
-| Task | Criar formulario de autenticacao |
-| Task | Validar mensagem de erro de login |
-| Issue | Consulta de Solicitacoes |
-| Task | Exibir lista de solicitacoes mockadas |
-| Issue | Publicacao do Portal |
-| Task | Conferir artefato da pipeline |
+Tempo sugerido: 45 minutos.
 
-Missao da equipe:
-
-- Mostrar que o Basic e simples e direto.
-- Mover pelo menos uma Issue para `Doing`.
-- Mover pelo menos uma Task para `Done`.
-- Marcar uma Task com a tag `blocked`.
-- Executar a pipeline `basic-portal` novamente em `homologacao`.
-
-### Equipe 2: Agile
-
-Projeto: `02-agile-delivery`
-
-Processo: Agile
-
-Hierarquia:
-
-```text
-Epic -> Feature -> User Story -> Task
-```
-
-Crie estes work items:
-
-| Tipo | Titulo |
-| --- | --- |
-| Epic | Sistema de Delivery |
-| Feature | Gestao de Pedidos |
-| User Story | Como cliente, desejo acompanhar meu pedido em tempo real |
-| Task | Exibir linha do tempo do pedido |
-| Task | Atualizar previsao de entrega |
-| User Story | Como atendente, desejo atualizar o status do pedido |
-| Task | Criar acao de avancar status |
-| Feature | Comunicacao com Cliente |
-
-Missao da equipe:
-
-- Mostrar como User Stories representam valor para o usuario.
-- Preencher story points nas User Stories, quando disponivel.
-- Mover uma User Story para `Active`.
-- Mover uma Task para `Closed`.
-- Executar a pipeline `agile-delivery` novamente em `homologacao`.
-
-### Equipe 3: Scrum
-
-Projeto: `03-scrum-banking`
-
-Processo: Scrum
-
-Hierarquia:
-
-```text
-Epic -> Feature -> Product Backlog Item -> Task
-```
-
-Crie estes work items:
-
-| Tipo | Titulo |
-| --- | --- |
-| Epic | Aplicativo Bancario |
-| Feature | Transferencia PIX |
-| Product Backlog Item | Permitir transferencia instantanea entre contas |
-| Task | Criar formulario de chave PIX e valor |
-| Task | Implementar validacao de chave PIX |
-| Task | Exibir resumo da transferencia |
-| Product Backlog Item | Bloquear valores acima do limite piloto |
-| Task | Configurar regra de limite |
-
-Missao da equipe:
-
-- Criar ou usar a sprint `Sprint 01 - PIX`.
-- Colocar pelo menos 2 PBIs dentro da sprint.
-- Preencher esforco ou estimativa, quando disponivel.
-- Mostrar o Burndown ou explicar por que ainda nao ha dados suficientes.
-- Executar a pipeline `scrum-banking` novamente em `homologacao`.
-
-### Equipe 4: CMMI
-
-Projeto: `04-cmmi-governance`
-
-Processo: CMMI
-
-Hierarquia:
-
-```text
-Epic -> Requirement -> Change Request -> Task
-```
-
-Crie estes work items:
-
-| Tipo | Titulo |
-| --- | --- |
-| Epic | Sistema Governamental |
-| Requirement | Controle de acesso por perfil |
-| Change Request | Alteracao da politica de autenticacao |
-| Task | Atualizar regras de permissao |
-| Task | Registrar criterio de auditoria |
-| Change Request | Exigir dupla aprovacao para perfil administrador |
-| Task | Ajustar tela de solicitacoes de mudanca |
-| Requirement | Historico de aprovacoes |
-
-Missao da equipe:
-
-- Mostrar como CMMI aumenta formalidade e rastreabilidade.
-- Preencher descricao e justificativa nos Requirements ou Change Requests.
-- Relacionar Tasks aos Requirements ou Change Requests.
-- Usar a tag `audit` em pelo menos um item.
-- Executar a pipeline `cmmi-governance` novamente em `homologacao`.
-
-## Parte 2: Montar o backlog
-
-Tempo sugerido: 25 minutos.
-
-Abra o arquivo do seu processo em `docs/processos`:
+Cada equipe deve seguir o guia detalhado do seu processo:
 
 - Basic: `docs/processos/basic.md`
 - Agile: `docs/processos/agile.md`
 - Scrum: `docs/processos/scrum.md`
 - CMMI: `docs/processos/cmmi.md`
 
-Crie a hierarquia indicada no Azure Boards. O foco e perceber como cada processo
-organiza o trabalho:
+Quantidade minima esperada:
 
-| Processo | Hierarquia principal |
+| Processo | Minimo esperado |
 | --- | --- |
-| Basic | Epic → Issue → Task |
-| Agile | Epic → Feature → User Story → Task |
-| Scrum | Epic → Feature → Product Backlog Item → Task |
-| CMMI | Epic → Requirement → Change Request → Task |
+| Basic | 1 Epic, 5 Issues, 10 Tasks |
+| Agile | 1 Epic, 3 Features, 6 User Stories, 10 Tasks |
+| Scrum | 1 Epic, 2 Features, 6 PBIs, 9 Tasks |
+| CMMI | 1 Epic, 4 Requirements, 5 Change Requests, 9 Tasks |
 
-Checklist:
+Checklist de qualidade do backlog:
 
-- Pelo menos 1 item de nivel alto criado.
-- Pelo menos 2 itens intermediarios criados.
-- Pelo menos 4 tarefas criadas.
-- Responsaveis atribuidos.
-- Prioridade, esforco ou story points preenchidos quando o processo permitir.
+- Itens possuem descricao realista.
+- Itens possuem prioridade.
+- Itens possuem estimativa.
+- Itens possuem criterios de aceite.
+- Tasks estao relacionadas ao item pai correto.
+- Pelo menos um item representa risco, bloqueio ou dependencia.
+- Pelo menos um item registra evidencia de pipeline.
 
-## Parte 3: Configurar Board e Sprint
+## Parte 4: Refinar, priorizar e estimar
 
-Tempo sugerido: 15 minutos.
+Tempo sugerido: 25 minutos.
+
+Cada equipe deve revisar o backlog criado e responder:
+
+1. O que entra no MVP?
+2. O que fica para depois?
+3. Qual item tem maior valor?
+4. Qual item tem maior risco?
+5. Algum item esta grande demais?
+6. Algum item depende de outro?
+
+Ajustes obrigatorios:
+
+- Ordenar os itens por prioridade.
+- Quebrar item estimado como `13` ou muito grande.
+- Marcar pelo menos uma tag de controle:
+  - `blocked`
+  - `risk`
+  - `audit`
+  - `pipeline`
+  - `customer-visible`
+- Registrar pelo menos uma decisao em Discussion ou comentario.
+
+## Parte 5: Configurar Board, sprint ou ciclo
+
+Tempo sugerido: 25 minutos.
 
 1. Acesse Boards.
-2. Mova alguns itens entre estados para simular andamento.
-3. Crie uma sprint ou selecione a sprint atual.
-4. Inclua pelo menos 3 itens na sprint.
-5. Atribua tarefas aos integrantes da equipe.
+2. Mova itens entre estados para simular andamento.
+3. Atribua responsaveis.
+4. Ajuste Remaining Work ou Completed Work em pelo menos uma Task, quando
+   disponivel.
+5. Para Scrum, crie ou use a sprint `Sprint 01 - PIX`.
+6. Para Agile, use o board e acompanhe fluxo por estado.
+7. Para CMMI, destaque Requirements e Change Requests em estados diferentes.
+8. Para Basic, destaque simplicidade e throughput.
 
 Sugestao de simulacao:
 
 - Um item ainda nao iniciado.
 - Um item em andamento.
 - Um item concluido.
-- Um item bloqueado, usando tag `blocked`.
+- Um item bloqueado.
 
-## Parte 4: Criar a pipeline
+## Parte 6: Executar pipeline e registrar evidencia
 
-Tempo sugerido: 15 minutos.
+Tempo sugerido: 20 minutos.
 
 1. Acesse Pipelines.
 2. Abra a pipeline da sua equipe.
 3. Clique em Run pipeline.
-4. Na execucao manual, escolha o ambiente simulado e preencha a nota da entrega.
-5. Execute a pipeline.
-6. Ao final, abra os logs e identifique cada etapa.
-7. Abra o artefato publicado.
-
-Se a pipeline ainda nao aparecer para a equipe, use o fluxo alternativo:
-
-1. Clique em New pipeline.
-2. Escolha GitHub.
-3. Selecione o monorepo publico da aula.
-4. Escolha Existing Azure Pipelines YAML file.
-5. Informe o YAML correspondente a equipe.
+4. Na execucao manual, escolha o ambiente simulado.
+5. Preencha a nota da entrega.
 6. Execute a pipeline.
+7. Ao final, abra os logs e identifique cada etapa.
+8. Abra o artefato publicado.
+9. Copie o link da execucao e registre em um work item com tag `pipeline`.
 
 Nao e necessario criar assinatura Azure, Service Connection de Azure Resource
 Manager, Terraform ou recurso real na Azure. A unica autorizacao esperada e a
 conexao do Azure DevOps com o repositorio GitHub.
 
-O pipeline demonstra cinco pontos:
-
-- Executa testes de verificacao do monorepo.
-- Valida o miniapp da equipe.
-- Publica um artefato estatico para evidenciar a entrega.
-- Executa um deploy simulado, apenas para demonstrar logs e historico.
-- Permite que cada equipe registre uma nota de entrega no momento da execucao.
-
-Sugestao para a primeira execucao:
+Execucao sugerida:
 
 - Ambiente simulado: `homologacao`.
-- Nota da entrega: `Primeira validacao da equipe no Azure DevOps`.
+- Nota da entrega: usar a nota indicada no guia do processo.
 
-Sugestao para a segunda execucao:
+Execucao opcional para apresentacao:
 
 - Ambiente simulado: `producao-demo`.
 - Nota da entrega: `Entrega simulada para apresentacao`.
 
-## Parte 5: Criar consultas e dashboard
+## Parte 7: Criar consultas e dashboard
 
-Tempo sugerido: 20 minutos.
+Tempo sugerido: 30 minutos.
 
 1. Acesse Boards > Queries.
 2. Crie uma consulta com base no arquivo `.wiql` do seu processo em
@@ -298,23 +211,37 @@ Widgets sugeridos:
 - Cumulative Flow Diagram: para visualizar gargalos.
 - Build History: historico da pipeline.
 
-## Parte 6: Fechamento da equipe
+O dashboard deve responder pelo menos 3 perguntas:
 
-Tempo sugerido: 10 minutos.
+- O que esta em andamento?
+- O que esta bloqueado?
+- O que foi entregue ou validado pela pipeline?
+- Qual item tem maior prioridade?
+- Qual metrica ajuda mais o gerente de projetos?
 
-Cada equipe apresenta em 3 minutos:
+## Parte 8: Fechamento da equipe
+
+Tempo sugerido: 20 minutos.
+
+Cada equipe apresenta em 4 minutos:
 
 1. Como o processo organiza o trabalho.
 2. Qual hierarquia de work items foi criada.
-3. Qual metrica do dashboard ajuda mais o gerente de projetos.
-4. O que mudou entre a primeira execucao da pipeline e a execucao feita pela equipe.
-5. O que a pipeline evidencia sobre entrega e rastreabilidade.
+3. Como a equipe priorizou e estimou.
+4. Qual item representa maior risco ou dependencia.
+5. Qual metrica do dashboard ajuda mais o gerente de projetos.
+6. O que mudou entre a primeira execucao da pipeline e a execucao feita pela equipe.
+7. O que a pipeline evidencia sobre entrega e rastreabilidade.
 
 ## Entregaveis esperados
 
-- Projeto Azure DevOps criado com o processo correto.
-- Backlog com hierarquia coerente.
-- Sprint ou board com itens em estados diferentes.
-- Pipeline executada pelo menos uma vez.
+- Backlog realista com hierarquia coerente.
+- Work items com descricao, prioridade, estimativa e criterios de aceite.
+- Board com itens em estados diferentes.
+- Sprint, ciclo ou fluxo configurado conforme o processo.
+- Pipeline executada pela equipe.
+- Link da execucao registrado em work item.
+- Artefato publicado identificado.
 - Dashboard com pelo menos 4 widgets.
-- Breve explicacao da equipe sobre a diferenca do seu processo.
+- Apresentacao curta comparando processo, backlog, metrica e pipeline.
+

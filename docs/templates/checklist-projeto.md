@@ -3,6 +3,11 @@
 - [ ] Projeto criado com o processo correto.
 - [ ] Equipe adicionada ao projeto.
 - [ ] Backlog criado com hierarquia coerente.
+- [ ] Work items possuem descricao clara.
+- [ ] Prioridade preenchida e justificada.
+- [ ] Story Points, Effort, Size ou Remaining Work preenchido quando disponivel.
+- [ ] Criterios de aceite preenchidos.
+- [ ] Pelo menos um risco, bloqueio ou dependencia registrado.
 - [ ] Pelo menos uma sprint ou iteracao configurada.
 - [ ] Board com itens em estados diferentes.
 - [ ] Pipeline criada a partir do YAML da equipe.
