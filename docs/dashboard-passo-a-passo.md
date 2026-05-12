@@ -27,13 +27,19 @@ Confirme estes pontos:
 
 ## Parte 2: Criar a consulta principal
 
+Todos os grupos devem comecar pelo mesmo caminho:
+
 1. Acesse Boards > Queries.
 2. Clique em New Query.
 3. Escolha o tipo `Flat list of work items`.
-4. Crie as clausulas da consulta conforme o processo da equipe.
+4. Monte as clausulas usando a tabela da sua equipe abaixo.
 5. Clique em Run query para testar.
-6. Ajuste as colunas exibidas.
-7. Salve em `Shared Queries > Dashboard da Equipe`.
+6. Clique em Column Options e ajuste as colunas recomendadas.
+7. Clique em Save query as.
+8. Salve em `Shared Queries > Dashboard da Equipe`.
+
+Se aparecer `My Queries` como local de salvamento, troque para `Shared Queries`.
+Consultas em `My Queries` nao sao adequadas para o dashboard da equipe.
 
 Campos recomendados nas colunas:
 
@@ -48,7 +54,14 @@ Campos recomendados nas colunas:
 
 ## Consultas sugeridas por processo
 
-### Basic
+## Equipe 1: Basic
+
+Projeto: `01-basic-portal`
+
+Objetivo do dashboard: acompanhar Issues do Portal do Cliente, tarefas
+bloqueadas e evidencia da pipeline.
+
+### Consulta principal
 
 Nome da consulta: `Basic - Itens ativos`
 
@@ -60,13 +73,57 @@ Clausulas:
 | Work Item Type | In | Epic, Issue, Task |
 | State | <> | Done |
 
-Colunas extras recomendadas:
+Colunas recomendadas:
 
+- ID
+- Work Item Type
+- Title
+- State
+- Assigned To
 - Priority
 - Effort
 - Tags
 
-### Agile
+Ordem sugerida:
+
+1. Work Item Type
+2. Priority
+3. State
+
+### Consultas adicionais
+
+Crie tambem estas consultas se houver tempo:
+
+| Nome | Clausulas |
+| --- | --- |
+| `Basic - Bloqueados` | Team Project = @Project; Tags Contains `blocked`; State <> Done |
+| `Basic - Pipeline` | Team Project = @Project; Tags Contains `pipeline` |
+| `Basic - MVP` | Team Project = @Project; Tags Contains `mvp`; State <> Done |
+
+### Graficos recomendados
+
+| Titulo do grafico | Widget ou aba Charts | Configuracao |
+| --- | --- | --- |
+| Issues por estado | Chart for Work Items | Query: `Basic - Itens ativos`; Group by: `State`; Chart: Column |
+| Trabalho por responsavel | Chart for Work Items | Query: `Basic - Itens ativos`; Group by: `Assigned To`; Chart: Bar |
+| Composicao do backlog | Chart for Work Items | Query: `Basic - Itens ativos`; Group by: `Work Item Type`; Chart: Pie |
+
+### Widgets obrigatorios
+
+- Markdown com objetivo, riscos e link da pipeline.
+- Query Results usando `Basic - Itens ativos`.
+- Chart for Work Items: Issues por estado.
+- Chart for Work Items: Trabalho por responsavel.
+- Build History da pipeline `basic-portal`.
+
+## Equipe 2: Agile
+
+Projeto: `02-agile-delivery`
+
+Objetivo do dashboard: acompanhar User Stories, valor por Feature, gargalos no
+fluxo e evidencia da pipeline.
+
+### Consulta principal
 
 Nome da consulta: `Agile - Historias e tarefas ativas`
 
@@ -78,14 +135,61 @@ Clausulas:
 | Work Item Type | In | Epic, Feature, User Story, Task |
 | State | <> | Closed |
 
-Colunas extras recomendadas:
+Colunas recomendadas:
 
+- ID
+- Work Item Type
+- Title
+- State
+- Assigned To
 - Priority
 - Story Points
 - Business Value
 - Tags
 
-### Scrum
+Ordem sugerida:
+
+1. Work Item Type
+2. Priority
+3. State
+
+### Consultas adicionais
+
+| Nome | Clausulas |
+| --- | --- |
+| `Agile - User Stories ativas` | Team Project = @Project; Work Item Type = User Story; State <> Closed |
+| `Agile - Bloqueados` | Team Project = @Project; Tags Contains `blocked`; State <> Closed |
+| `Agile - Pipeline` | Team Project = @Project; Tags Contains `pipeline` |
+
+### Graficos recomendados
+
+| Titulo do grafico | Widget ou aba Charts | Configuracao |
+| --- | --- | --- |
+| User Stories por estado | Chart for Work Items | Query: `Agile - User Stories ativas`; Group by: `State`; Chart: Column |
+| Story Points por estado | Chart for Work Items | Query: `Agile - User Stories ativas`; Aggregation: Sum de `Story Points`; Group by: `State`; Chart: Column |
+| Trabalho por responsavel | Chart for Work Items | Query: `Agile - Historias e tarefas ativas`; Group by: `Assigned To`; Chart: Bar |
+| Itens por tipo | Chart for Work Items | Query: `Agile - Historias e tarefas ativas`; Group by: `Work Item Type`; Chart: Pie |
+
+Se o Azure DevOps nao permitir somar `Story Points`, confirme se `Story Points`
+esta nas colunas da consulta e salve novamente.
+
+### Widgets obrigatorios
+
+- Markdown com objetivo, riscos e link da pipeline.
+- Query Results usando `Agile - Historias e tarefas ativas`.
+- Chart for Work Items: User Stories por estado.
+- Chart for Work Items: Trabalho por responsavel ou Story Points por estado.
+- Cumulative Flow Diagram, se disponivel.
+- Build History da pipeline `agile-delivery`.
+
+## Equipe 3: Scrum
+
+Projeto: `03-scrum-banking`
+
+Objetivo do dashboard: acompanhar a `Sprint 01 - PIX`, PBIs comprometidos,
+Remaining Work, burndown e evidencia da pipeline.
+
+### Consulta principal
 
 Nome da consulta: `Scrum - Sprint 01`
 
@@ -101,14 +205,67 @@ Clausulas:
 Se a sprint ainda nao existir, remova temporariamente a clausula de Iteration
 Path, salve a consulta e adicione a sprint depois.
 
-Colunas extras recomendadas:
+Colunas recomendadas:
 
+- ID
+- Work Item Type
+- Title
+- State
+- Assigned To
 - Priority
 - Effort
+- Original Estimate
 - Remaining Work
+- Completed Work
 - Tags
 
-### CMMI
+Ordem sugerida:
+
+1. Priority
+2. Work Item Type
+3. State
+
+### Consultas adicionais
+
+| Nome | Clausulas |
+| --- | --- |
+| `Scrum - PBIs da Sprint` | Team Project = @Project; Work Item Type = Product Backlog Item; Iteration Path Under `Sprint 01 - PIX` |
+| `Scrum - Tasks abertas` | Team Project = @Project; Work Item Type = Task; State <> Done; Iteration Path Under `Sprint 01 - PIX` |
+| `Scrum - Pipeline` | Team Project = @Project; Tags Contains `pipeline` |
+
+### Graficos recomendados
+
+| Titulo do grafico | Widget ou aba Charts | Configuracao |
+| --- | --- | --- |
+| PBIs por estado | Chart for Work Items | Query: `Scrum - PBIs da Sprint`; Group by: `State`; Chart: Column |
+| Tasks por responsavel | Chart for Work Items | Query: `Scrum - Tasks abertas`; Group by: `Assigned To`; Chart: Bar |
+| Remaining Work por estado | Chart for Work Items | Query: `Scrum - Tasks abertas`; Aggregation: Sum de `Remaining Work`; Group by: `State`; Chart: Column |
+| Composicao da sprint | Chart for Work Items | Query: `Scrum - Sprint 01`; Group by: `Work Item Type`; Chart: Pie |
+
+Se o burndown ficar vazio, confira se:
+
+- a sprint tem data de inicio e fim;
+- PBIs e Tasks estao dentro da sprint;
+- Tasks possuem `Remaining Work`;
+- a equipe mudou estados ou atualizou trabalho restante.
+
+### Widgets obrigatorios
+
+- Markdown com meta da sprint, riscos e link da pipeline.
+- Query Results usando `Scrum - Sprint 01`.
+- Chart for Work Items: PBIs por estado.
+- Chart for Work Items: Remaining Work por estado.
+- Sprint Burndown, se houver dados suficientes.
+- Build History da pipeline `scrum-banking`.
+
+## Equipe 4: CMMI
+
+Projeto: `04-cmmi-governance`
+
+Objetivo do dashboard: acompanhar Requirements, Change Requests, riscos,
+evidencias de auditoria e pipeline.
+
+### Consulta principal
 
 Nome da consulta: `CMMI - Requisitos e mudancas ativas`
 
@@ -120,12 +277,54 @@ Clausulas:
 | Work Item Type | In | Epic, Requirement, Change Request, Task |
 | State | <> | Closed |
 
-Colunas extras recomendadas:
+Colunas recomendadas:
 
+- ID
+- Work Item Type
+- Title
+- State
+- Assigned To
 - Priority
 - Risk
 - Size
 - Tags
+
+Ordem sugerida:
+
+1. Priority
+2. Risk
+3. Work Item Type
+4. State
+
+### Consultas adicionais
+
+| Nome | Clausulas |
+| --- | --- |
+| `CMMI - Requirements ativos` | Team Project = @Project; Work Item Type = Requirement; State <> Closed |
+| `CMMI - Change Requests ativos` | Team Project = @Project; Work Item Type = Change Request; State <> Closed |
+| `CMMI - Auditoria` | Team Project = @Project; Tags Contains `audit`; State <> Closed |
+| `CMMI - Pipeline` | Team Project = @Project; Tags Contains `pipeline` |
+
+### Graficos recomendados
+
+| Titulo do grafico | Widget ou aba Charts | Configuracao |
+| --- | --- | --- |
+| Requirements por estado | Chart for Work Items | Query: `CMMI - Requirements ativos`; Group by: `State`; Chart: Column |
+| Change Requests por estado | Chart for Work Items | Query: `CMMI - Change Requests ativos`; Group by: `State`; Chart: Column |
+| Itens por risco | Chart for Work Items | Query: `CMMI - Requisitos e mudancas ativas`; Group by: `Risk`; Chart: Bar |
+| Itens de auditoria por tipo | Chart for Work Items | Query: `CMMI - Auditoria`; Group by: `Work Item Type`; Chart: Pie |
+
+Se o campo `Risk` nao aparecer, use `Priority` ou `Work Item Type` no grafico e
+registre o risco na descricao dos itens.
+
+### Widgets obrigatorios
+
+- Markdown com riscos, aprovacoes, governanca e link da pipeline.
+- Query Results usando `CMMI - Requisitos e mudancas ativas`.
+- Chart for Work Items: Requirements por estado.
+- Chart for Work Items: Change Requests por estado.
+- Chart for Work Items: Itens de auditoria por tipo.
+- Build History da pipeline `cmmi-governance`.
 
 ## Parte 3: Criar graficos a partir da consulta
 
