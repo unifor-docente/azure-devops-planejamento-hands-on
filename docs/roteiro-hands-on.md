@@ -76,7 +76,9 @@ Campos obrigatorios para a aula:
 - `Description`: problema, contexto e escopo.
 - `Assigned To`: responsavel pelo proximo passo.
 - `Priority`: importancia do item.
-- `Story Points`, `Effort`, `Size` ou `Remaining Work`, conforme o processo.
+- `Story Points`, `Effort`, `Size`, `Activity`, `Discipline`,
+  `Original Estimate`, `Remaining Work` ou `Completed Work`, conforme o
+  processo e o tipo de work item.
 - `Acceptance Criteria`: condicoes objetivas para aceitar a entrega.
 - `Tags`: marcadores para filtro e dashboard.
 - `Parent/Child`: relacionamento entre os niveis do backlog.
@@ -104,7 +106,7 @@ Quantidade minima esperada:
 | Basic | 1 Epic, 5 Issues, 10 Tasks |
 | Agile | 1 Epic, 3 Features, 6 User Stories, 10 Tasks |
 | Scrum | 1 Epic, 2 Features, 6 PBIs, 9 Tasks |
-| CMMI | 1 Epic, 4 Requirements, 5 Change Requests, 9 Tasks |
+| CMMI | 1 Epic, 2 Features, 4 Requirements, 5 Change Requests, 9 Tasks |
 
 Checklist de qualidade do backlog:
 
@@ -148,10 +150,14 @@ Tempo sugerido: 25 minutos.
 1. Acesse Boards.
 2. Mova itens entre estados para simular andamento.
 3. Atribua responsaveis.
-4. Ajuste Activity e Remaining Work em pelo menos uma Task, quando disponivel.
+4. Ajuste os campos de Task conforme o processo. Basic/Scrum usam Activity e
+   Remaining Work. Agile usa Activity, Original Estimate, Remaining Work e
+   Completed Work. CMMI usa Discipline, Original Estimate, Remaining Work e
+   Completed Work, quando disponivel.
 5. Para Scrum, crie ou use a sprint `Sprint 01 - PIX`.
 6. Para Agile, use o board e acompanhe fluxo por estado.
-7. Para CMMI, destaque Requirements e Change Requests em estados diferentes.
+7. Para CMMI, destaque Features, Requirements e Change Requests em estados
+   diferentes.
 8. Para Basic, destaque simplicidade e throughput.
 
 Sugestao de simulacao:

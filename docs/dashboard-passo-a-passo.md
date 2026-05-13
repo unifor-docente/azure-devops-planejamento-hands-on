@@ -50,7 +50,8 @@ Campos recomendados nas colunas:
 - Assigned To
 - Priority
 - Tags
-- Story Points, Effort, Size ou Remaining Work, quando existir no processo
+- Story Points, Effort, Size, Activity, Discipline, Original Estimate,
+  Remaining Work ou Completed Work, quando existir no processo
 
 ## Consultas sugeridas por processo
 
@@ -147,6 +148,10 @@ Colunas recomendadas:
 - Priority
 - Story Points
 - Business Value
+- Activity
+- Original Estimate
+- Remaining Work
+- Completed Work
 - Tags
 
 Ordem sugerida:
@@ -216,9 +221,8 @@ Colunas recomendadas:
 - Assigned To
 - Priority
 - Effort
-- Original Estimate
+- Activity
 - Remaining Work
-- Completed Work
 - Tags
 
 Ordem sugerida:
@@ -264,8 +268,8 @@ Se o burndown ficar vazio, confira se:
 
 Projeto: `04-cmmi-governance`
 
-Objetivo do dashboard: acompanhar Requirements, Change Requests, riscos,
-evidencias de auditoria e pipeline.
+Objetivo do dashboard: acompanhar Features, Requirements, Change Requests,
+riscos, evidencias de auditoria e pipeline.
 
 ### Consulta principal
 
@@ -276,7 +280,7 @@ Clausulas:
 | Campo | Operador | Valor |
 | --- | --- | --- |
 | Team Project | = | @Project |
-| Work Item Type | In | Epic, Requirement, Change Request, Task |
+| Work Item Type | In | Epic, Feature, Requirement, Change Request, Task |
 | State | <> | Closed |
 
 Colunas recomendadas:
@@ -287,8 +291,13 @@ Colunas recomendadas:
 - State
 - Assigned To
 - Priority
+- Business Value
 - Risk
 - Size
+- Discipline
+- Original Estimate
+- Remaining Work
+- Completed Work
 - Tags
 
 Ordem sugerida:
@@ -302,6 +311,7 @@ Ordem sugerida:
 
 | Nome | Clausulas |
 | --- | --- |
+| `CMMI - Features ativas` | Team Project = @Project; Work Item Type = Feature; State <> Closed |
 | `CMMI - Requirements ativos` | Team Project = @Project; Work Item Type = Requirement; State <> Closed |
 | `CMMI - Change Requests ativos` | Team Project = @Project; Work Item Type = Change Request; State <> Closed |
 | `CMMI - Auditoria` | Team Project = @Project; Tags Contains `audit`; State <> Closed |
@@ -311,6 +321,7 @@ Ordem sugerida:
 
 | Titulo do grafico | Widget ou aba Charts | Configuracao |
 | --- | --- | --- |
+| Features por estado | Chart for Work Items | Query: `CMMI - Features ativas`; Group by: `State`; Chart: Column |
 | Requirements por estado | Chart for Work Items | Query: `CMMI - Requirements ativos`; Group by: `State`; Chart: Column |
 | Change Requests por estado | Chart for Work Items | Query: `CMMI - Change Requests ativos`; Group by: `State`; Chart: Column |
 | Itens por risco | Chart for Work Items | Query: `CMMI - Requisitos e mudancas ativas`; Group by: `Risk`; Chart: Bar |
@@ -323,6 +334,7 @@ registre o risco na descricao dos itens.
 
 - Markdown com riscos, aprovacoes, governanca e link da pipeline.
 - Query Results usando `CMMI - Requisitos e mudancas ativas`.
+- Chart for Work Items: Features por estado.
 - Chart for Work Items: Requirements por estado.
 - Chart for Work Items: Change Requests por estado.
 - Chart for Work Items: Itens de auditoria por tipo.

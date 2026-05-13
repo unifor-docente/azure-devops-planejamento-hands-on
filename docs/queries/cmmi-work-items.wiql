@@ -8,9 +8,8 @@ SELECT
 FROM WorkItems
 WHERE
   [System.TeamProject] = @project
-  AND [System.WorkItemType] IN ('Epic', 'Requirement', 'Change Request', 'Task')
+  AND [System.WorkItemType] IN ('Epic', 'Feature', 'Requirement', 'Change Request', 'Task')
   AND [System.State] <> 'Closed'
 ORDER BY
   [System.WorkItemType],
   [System.ChangedDate] DESC
-

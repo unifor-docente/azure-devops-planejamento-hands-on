@@ -5,6 +5,7 @@ Miniapp da equipe com processo CMMI.
 ## Backlog sugerido
 
 - Epic: Sistema Governamental
+- Feature: Governanca de acessos administrativos
 - Requirement: Controle de acesso por perfil
 - Change Request: Alteracao da politica de autenticacao
 - Task: Atualizar regras de permissao
@@ -22,4 +23,3 @@ Miniapp da equipe com processo CMMI.
 node scripts/validate-project.mjs apps/cmmi-governance
 node scripts/build.mjs apps/cmmi-governance
 ```
-

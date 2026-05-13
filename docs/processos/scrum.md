@@ -33,6 +33,7 @@ Preenchimento minimo:
 - Assigned To
 - Priority
 - Effort nos Product Backlog Items
+- Activity nas Tasks, quando disponivel
 - Remaining Work nas Tasks
 - Iteration Path com a sprint da aula
 - Tags
@@ -54,6 +55,8 @@ Remaining Work das Tasks:
 - Use horas simbolicas.
 - Cada integrante pode assumir de `2h` a `4h` para simular capacidade.
 - Ao mover uma Task para `Done`, atualize Remaining Work para `0`.
+- Use Activity para separar desenvolvimento, teste, conteudo ou deploy, quando
+  o campo aparecer na Task.
 
 ## Sprint sugerida
 
@@ -81,26 +84,26 @@ Capacidade simbolica:
 Crie os itens abaixo no Azure Boards. Coloque na `Sprint 01 - PIX` apenas os PBIs
 marcados como `Sprint 01`. Os itens `Futuro` ficam no product backlog.
 
-| ID | Tipo | Pai | Titulo | Prioridade | Effort/Tempo | Iteration | Estado inicial | Tags |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| S-EPIC-01 | Epic | - | Aplicativo Bancario | 1 | Produto | Backlog | New | `mvp` |
-| S-FEAT-01 | Feature | S-EPIC-01 | Transferencia PIX | 1 | Alta | Sprint 01 | Approved | `mvp` |
-| S-PBI-01 | Product Backlog Item | S-FEAT-01 | Permitir transferencia instantanea entre contas | 1 | 8 | Sprint 01 | Committed | `customer-visible` |
-| S-TASK-01 | Task | S-PBI-01 | Criar formulario de chave PIX e valor | 1 | 3h | Sprint 01 | To Do | `frontend` |
-| S-TASK-02 | Task | S-PBI-01 | Implementar validacao de chave PIX | 1 | 3h | Sprint 01 | In Progress | `quality` |
-| S-TASK-03 | Task | S-PBI-01 | Exibir resumo da transferencia | 2 | 2h | Sprint 01 | To Do | `frontend` |
-| S-PBI-02 | Product Backlog Item | S-FEAT-01 | Bloquear valores acima do limite piloto | 1 | 3 | Sprint 01 | Approved | `risk` |
-| S-TASK-04 | Task | S-PBI-02 | Configurar regra de limite de R$ 500 | 1 | 1h | Sprint 01 | To Do | `business-rule` |
-| S-TASK-05 | Task | S-PBI-02 | Validar mensagem de limite excedido | 2 | 1h | Sprint 01 | To Do | `quality` |
-| S-PBI-03 | Product Backlog Item | S-FEAT-01 | Registrar comprovante visual da operacao | 2 | 5 | Sprint 01 | Approved | `customer-visible` |
-| S-TASK-06 | Task | S-PBI-03 | Definir campos do comprovante | 2 | 1h | Sprint 01 | To Do | `content` |
-| S-TASK-07 | Task | S-PBI-03 | Conferir layout do resumo final | 2 | 2h | Sprint 01 | To Do | `ux` |
-| S-PBI-04 | Product Backlog Item | S-FEAT-01 | Evidenciar entrega pela pipeline | 1 | 3 | Sprint 01 | Approved | `pipeline` |
-| S-TASK-08 | Task | S-PBI-04 | Conferir artefato `scrum-banking-site` | 1 | 1h | Sprint 01 | To Do | `pipeline` |
-| S-TASK-09 | Task | S-PBI-04 | Registrar link da execucao da pipeline | 1 | 1h | Sprint 01 | To Do | `pipeline` |
-| S-FEAT-02 | Feature | S-EPIC-01 | Beneficiarios Favoritos | 3 | Media | Futuro | New | `future` |
-| S-PBI-05 | Product Backlog Item | S-FEAT-02 | Salvar chave PIX como favorita | 3 | 8 | Futuro | New | `future` |
-| S-PBI-06 | Product Backlog Item | S-FEAT-02 | Enviar comprovante por e-mail | 4 | 5 | Futuro | New | `future` |
+| ID | Tipo | Pai | Titulo | Prioridade | Effort do PBI | Activity da Task | Remaining Work da Task | Iteration | Estado inicial | Tags |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| S-EPIC-01 | Epic | - | Aplicativo Bancario | 1 | - | - | - | Backlog | New | `mvp` |
+| S-FEAT-01 | Feature | S-EPIC-01 | Transferencia PIX | 1 | - | - | - | Sprint 01 | Approved | `mvp` |
+| S-PBI-01 | Product Backlog Item | S-FEAT-01 | Permitir transferencia instantanea entre contas | 1 | 8 | - | - | Sprint 01 | Committed | `customer-visible` |
+| S-TASK-01 | Task | S-PBI-01 | Criar formulario de chave PIX e valor | 1 | - | Development | 3 | Sprint 01 | To Do | `frontend` |
+| S-TASK-02 | Task | S-PBI-01 | Implementar validacao de chave PIX | 1 | - | Testing | 3 | Sprint 01 | In Progress | `quality` |
+| S-TASK-03 | Task | S-PBI-01 | Exibir resumo da transferencia | 2 | - | Development | 2 | Sprint 01 | To Do | `frontend` |
+| S-PBI-02 | Product Backlog Item | S-FEAT-01 | Bloquear valores acima do limite piloto | 1 | 3 | - | - | Sprint 01 | Approved | `risk` |
+| S-TASK-04 | Task | S-PBI-02 | Configurar regra de limite de R$ 500 | 1 | - | Development | 1 | Sprint 01 | To Do | `business-rule` |
+| S-TASK-05 | Task | S-PBI-02 | Validar mensagem de limite excedido | 2 | - | Testing | 1 | Sprint 01 | To Do | `quality` |
+| S-PBI-03 | Product Backlog Item | S-FEAT-01 | Registrar comprovante visual da operacao | 2 | 5 | - | - | Sprint 01 | Approved | `customer-visible` |
+| S-TASK-06 | Task | S-PBI-03 | Definir campos do comprovante | 2 | - | Documentation | 1 | Sprint 01 | To Do | `content` |
+| S-TASK-07 | Task | S-PBI-03 | Conferir layout do resumo final | 2 | - | Design | 2 | Sprint 01 | To Do | `ux` |
+| S-PBI-04 | Product Backlog Item | S-FEAT-01 | Evidenciar entrega pela pipeline | 1 | 3 | - | - | Sprint 01 | Approved | `pipeline` |
+| S-TASK-08 | Task | S-PBI-04 | Conferir artefato `scrum-banking-site` | 1 | - | Deployment | 1 | Sprint 01 | To Do | `pipeline` |
+| S-TASK-09 | Task | S-PBI-04 | Registrar link da execucao da pipeline | 1 | - | Deployment | 1 | Sprint 01 | To Do | `pipeline` |
+| S-FEAT-02 | Feature | S-EPIC-01 | Beneficiarios Favoritos | 3 | - | - | - | Futuro | New | `future` |
+| S-PBI-05 | Product Backlog Item | S-FEAT-02 | Salvar chave PIX como favorita | 3 | 8 | - | - | Futuro | New | `future` |
+| S-PBI-06 | Product Backlog Item | S-FEAT-02 | Enviar comprovante por e-mail | 4 | 5 | - | - | Futuro | New | `future` |
 
 ## Detalhes para preencher
 
@@ -180,4 +183,3 @@ Criterios de aceite:
 - Query Results: PBIs comprometidos.
 - Chart for Work Items: Tasks por estado.
 - Build History: pipeline `scrum-banking`.
-

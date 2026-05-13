@@ -27,12 +27,14 @@ comentario.
 | Campo | Onde costuma aparecer | O que representa | Como preencher |
 | --- | --- | --- | --- |
 | Story Points | Agile, em User Story | Tamanho relativo da historia | Use Fibonacci simples: `1`, `2`, `3`, `5`, `8`, `13`. |
-| Effort | Scrum, Basic ou alguns templates | Tamanho relativo do item | Use como pontos relativos quando estiver em PBI ou Issue. Em Epic, preencha somente se o processo expuser esse campo; no Basic, mantenha Effort nas Issues. |
-| Activity | Task | Tipo de atividade da tarefa | No Basic, use em Task junto com Remaining Work. Ex: `Development`, `Testing`, `Design`, `Documentation`, `Deployment`. |
-| Original Estimate | Task | Estimativa inicial de horas | Informe horas simbolicas quando o processo exibir o campo. No Basic, use Remaining Work. |
-| Remaining Work | Task | Trabalho restante em horas | Atualize quando mover a tarefa no board. No Basic, este e o campo de horas da Task. |
-| Completed Work | Task | Trabalho ja concluido em horas | Preencha quando uma tarefa for finalizada. |
-| Business Value | Feature, PBI, Requirement | Valor para negocio/usuario | Use escala `1` a `100`; quanto maior, mais valor. |
+| Effort | Scrum em Product Backlog Item; Basic em Issue quando exibido | Tamanho relativo do item de backlog | Use como pontos relativos no item de backlog. No Basic, mantenha Effort nas Issues; no Scrum, nos PBIs. |
+| Activity | Task em Basic, Agile ou Scrum, quando exibido | Tipo de atividade da tarefa | Use valores como `Development`, `Testing`, `Design`, `Documentation` ou `Deployment`. |
+| Discipline | Task em CMMI | Disciplina da tarefa | Use valores como `Analysis`, `Development`, `Test`, `User Education` ou `User Experience`, conforme aparecer no projeto. |
+| Original Estimate | Task em Agile ou CMMI | Estimativa inicial de horas | Informe horas simbolicas quando o processo exibir o campo. No Basic e no Scrum, use Remaining Work para acompanhamento de horas. |
+| Remaining Work | Task | Trabalho restante em horas | Atualize quando mover a tarefa no board. No Basic e no Scrum, este e o principal campo de horas da Task. |
+| Completed Work | Task em Agile ou CMMI | Trabalho ja concluido em horas | Preencha quando uma tarefa for finalizada, se o campo existir. |
+| Business Value | Epic ou Feature, quando exibido | Valor para negocio/usuario | Use escala `1` a `100`; quanto maior, mais valor. |
+| Size | CMMI em Requirement | Tamanho relativo do requisito | Use escala simples como `1`, `2`, `3`, `5` e `8`. |
 | Risk | CMMI ou campos personalizados | Risco de prazo, escopo ou conformidade | Use `1` alto, `2` medio, `3` baixo, se o campo existir. |
 
 ## Como estimar

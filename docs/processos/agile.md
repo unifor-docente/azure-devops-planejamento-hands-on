@@ -33,7 +33,8 @@ Preenchimento minimo:
 - Priority
 - Story Points nas User Stories
 - Business Value nas Features, quando disponivel
-- Original Estimate e Remaining Work nas Tasks, quando disponivel
+- Activity, Original Estimate, Remaining Work e Completed Work nas Tasks,
+  quando disponivel
 - Tags
 - Relacionamento entre Epic, Features, User Stories e Tasks
 
@@ -55,35 +56,45 @@ Business Value:
 - `50`: util para acompanhamento.
 - `20`: melhoria desejavel.
 
+Tasks no Agile:
+
+- Use Activity para separar desenvolvimento, teste, design, conteudo ou deploy.
+- Use Original Estimate para a estimativa inicial.
+- Use Remaining Work para o trabalho restante.
+- Use Completed Work ao concluir a Task.
+
 ## Backlog realista
 
 Crie os itens abaixo no Azure Boards. Depois relacione cada Task a sua User
 Story, cada User Story a sua Feature e cada Feature ao Epic.
 
-| ID | Tipo | Pai | Titulo | Prioridade | Valor/Estimativa | Estado inicial | Tags |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| A-EPIC-01 | Epic | - | Sistema de Delivery | 1 | Produto | New | `mvp` |
-| A-FEAT-01 | Feature | A-EPIC-01 | Gestao de Pedidos | 1 | Business Value 100 | Active | `mvp` |
-| A-US-01 | User Story | A-FEAT-01 | Como cliente, desejo acompanhar meu pedido em tempo real | 1 | 8 SP | Active | `customer-visible` |
-| A-TASK-01 | Task | A-US-01 | Exibir linha do tempo do pedido | 1 | 3h | Active | `frontend` |
-| A-TASK-02 | Task | A-US-01 | Atualizar previsao de entrega | 1 | 2h | New | `frontend` |
-| A-TASK-03 | Task | A-US-01 | Validar status atual no resumo do pedido | 2 | 2h | New | `quality` |
-| A-US-02 | User Story | A-FEAT-01 | Como atendente, desejo atualizar o status do pedido | 1 | 5 SP | New | `operation` |
-| A-TASK-04 | Task | A-US-02 | Criar acao de avancar status | 1 | 2h | New | `frontend` |
-| A-TASK-05 | Task | A-US-02 | Bloquear avanco apos pedido entregue | 2 | 2h | New | `quality` |
-| A-FEAT-02 | Feature | A-EPIC-01 | Comunicacao com Cliente | 2 | Business Value 80 | New | `customer-visible` |
-| A-US-03 | User Story | A-FEAT-02 | Como cliente, desejo receber aviso quando o pedido sair para entrega | 2 | 5 SP | New | `notification` |
-| A-TASK-06 | Task | A-US-03 | Definir texto do aviso de saida para entrega | 2 | 1h | New | `content` |
-| A-TASK-07 | Task | A-US-03 | Simular alerta visual no miniapp | 2 | 2h | New | `frontend` |
-| A-US-04 | User Story | A-FEAT-02 | Como cliente, desejo ver prazo estimado de entrega atualizado | 2 | 3 SP | New | `customer-visible` |
-| A-TASK-08 | Task | A-US-04 | Revisar regra de exibicao do tempo estimado | 2 | 2h | New | `frontend` |
-| A-FEAT-03 | Feature | A-EPIC-01 | Acompanhamento Operacional | 3 | Business Value 50 | New | `management` |
-| A-US-05 | User Story | A-FEAT-03 | Como gerente, desejo visualizar gargalos por status do pedido | 3 | 8 SP | New | `dashboard` |
-| A-TASK-09 | Task | A-US-05 | Criar query de pedidos por estado | 3 | 2h | New | `query` |
-| A-TASK-10 | Task | A-US-05 | Adicionar grafico no dashboard da equipe | 3 | 2h | New | `dashboard` |
-| A-US-06 | User Story | A-FEAT-03 | Como equipe, desejo evidenciar entrega pela pipeline | 1 | 3 SP | New | `pipeline` |
-| A-TASK-11 | Task | A-US-06 | Conferir artefato `agile-delivery-site` | 1 | 1h | New | `pipeline` |
-| A-TASK-12 | Task | A-US-06 | Registrar link da execucao da pipeline | 1 | 1h | New | `pipeline` |
+Para Tasks, use `OE` como Original Estimate, `RW` como Remaining Work e `CW`
+como Completed Work.
+
+| ID | Tipo | Pai | Titulo | Prioridade | Planejamento | Trabalho da Task | Estado inicial | Tags |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| A-EPIC-01 | Epic | - | Sistema de Delivery | 1 | - | - | New | `mvp` |
+| A-FEAT-01 | Feature | A-EPIC-01 | Gestao de Pedidos | 1 | Business Value 100 | - | Active | `mvp` |
+| A-US-01 | User Story | A-FEAT-01 | Como cliente, desejo acompanhar meu pedido em tempo real | 1 | Story Points 8 | - | Active | `customer-visible` |
+| A-TASK-01 | Task | A-US-01 | Exibir linha do tempo do pedido | 1 | - | Activity Development; OE 3; RW 3; CW 0 | Active | `frontend` |
+| A-TASK-02 | Task | A-US-01 | Atualizar previsao de entrega | 1 | - | Activity Development; OE 2; RW 2; CW 0 | New | `frontend` |
+| A-TASK-03 | Task | A-US-01 | Validar status atual no resumo do pedido | 2 | - | Activity Testing; OE 2; RW 2; CW 0 | New | `quality` |
+| A-US-02 | User Story | A-FEAT-01 | Como atendente, desejo atualizar o status do pedido | 1 | Story Points 5 | - | New | `operation` |
+| A-TASK-04 | Task | A-US-02 | Criar acao de avancar status | 1 | - | Activity Development; OE 2; RW 2; CW 0 | New | `frontend` |
+| A-TASK-05 | Task | A-US-02 | Bloquear avanco apos pedido entregue | 2 | - | Activity Testing; OE 2; RW 2; CW 0 | New | `quality` |
+| A-FEAT-02 | Feature | A-EPIC-01 | Comunicacao com Cliente | 2 | Business Value 80 | - | New | `customer-visible` |
+| A-US-03 | User Story | A-FEAT-02 | Como cliente, desejo receber aviso quando o pedido sair para entrega | 2 | Story Points 5 | - | New | `notification` |
+| A-TASK-06 | Task | A-US-03 | Definir texto do aviso de saida para entrega | 2 | - | Activity Documentation; OE 1; RW 1; CW 0 | New | `content` |
+| A-TASK-07 | Task | A-US-03 | Simular alerta visual no miniapp | 2 | - | Activity Development; OE 2; RW 2; CW 0 | New | `frontend` |
+| A-US-04 | User Story | A-FEAT-02 | Como cliente, desejo ver prazo estimado de entrega atualizado | 2 | Story Points 3 | - | New | `customer-visible` |
+| A-TASK-08 | Task | A-US-04 | Revisar regra de exibicao do tempo estimado | 2 | - | Activity Development; OE 2; RW 2; CW 0 | New | `frontend` |
+| A-FEAT-03 | Feature | A-EPIC-01 | Acompanhamento Operacional | 3 | Business Value 50 | - | New | `management` |
+| A-US-05 | User Story | A-FEAT-03 | Como gerente, desejo visualizar gargalos por status do pedido | 3 | Story Points 8 | - | New | `dashboard` |
+| A-TASK-09 | Task | A-US-05 | Criar query de pedidos por estado | 3 | - | Activity Documentation; OE 2; RW 2; CW 0 | New | `query` |
+| A-TASK-10 | Task | A-US-05 | Adicionar grafico no dashboard da equipe | 3 | - | Activity Design; OE 2; RW 2; CW 0 | New | `dashboard` |
+| A-US-06 | User Story | A-FEAT-03 | Como equipe, desejo evidenciar entrega pela pipeline | 1 | Story Points 3 | - | New | `pipeline` |
+| A-TASK-11 | Task | A-US-06 | Conferir artefato `agile-delivery-site` | 1 | - | Activity Deployment; OE 1; RW 1; CW 0 | New | `pipeline` |
+| A-TASK-12 | Task | A-US-06 | Registrar link da execucao da pipeline | 1 | - | Activity Deployment; OE 1; RW 1; CW 0 | New | `pipeline` |
 
 ## Detalhes para preencher
 
@@ -156,7 +167,8 @@ Criterios de aceite:
 ## Simulacao obrigatoria
 
 1. Mova `A-US-01` para `Active`.
-2. Mova `A-TASK-01` para `Closed` quando a equipe conferir o miniapp.
+2. Mova `A-TASK-01` para `Closed` quando a equipe conferir o miniapp e atualize
+   Remaining Work para `0` e Completed Work para `3`.
 3. Marque `A-TASK-05` com a tag `blocked`.
 4. Execute a pipeline com a nota `Fluxo de delivery validado pela equipe Agile`.
 
@@ -173,4 +185,3 @@ Criterios de aceite:
 - Query Results: User Stories ativas.
 - Chart for Work Items: User Stories por estado.
 - Build History: pipeline `agile-delivery`.
-

@@ -11,14 +11,18 @@ Hierarquia do processo:
 
 ```text
 Epic
-└── Requirement
-    └── Change Request
+└── Feature
+    └── Requirement
         └── Task
+
+Requirement ── Change Request
 ```
 
 O processo CMMI deve mostrar governanca. Ele e mais pesado que Basic, Agile e
 Scrum, mas ajuda quando o projeto exige historico, aprovacao, conformidade e
-auditoria.
+auditoria. Use Features para agrupar Requirements no nivel de portfolio. Use
+Change Requests como itens formais relacionados aos Requirements quando houver
+mudanca de escopo, regra ou politica.
 
 ## Campos que a equipe deve preencher
 
@@ -34,9 +38,11 @@ Preenchimento minimo:
 - Risk, quando disponivel
 - Business Value, quando disponivel
 - Size, quando disponivel
+- Discipline, Original Estimate, Remaining Work e Completed Work nas Tasks,
+  quando disponivel
 - Tags
 - Justificativa nos Change Requests
-- Relacionamento entre Requirements, Change Requests e Tasks
+- Relacionamento entre Epic, Features, Requirements, Tasks e Change Requests
 
 ## Escala sugerida
 
@@ -61,32 +67,44 @@ Size:
 - `5`: grande.
 - `8`: muito grande para a aula.
 
+Tasks no CMMI:
+
+- Use Discipline para indicar a disciplina da tarefa.
+- Use Original Estimate para a estimativa inicial.
+- Use Remaining Work para o trabalho restante.
+- Use Completed Work ao concluir a Task.
+
 ## Backlog realista
 
-Crie os itens abaixo no Azure Boards. Depois relacione Tasks aos Change Requests
-ou Requirements e Change Requests aos Requirements correspondentes.
+Crie os itens abaixo no Azure Boards. Depois relacione Requirements a Features,
+Tasks aos Requirements e Change Requests aos Requirements correspondentes.
 
-| ID | Tipo | Pai | Titulo | Prioridade | Risco/Size | Estado inicial | Tags |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| C-EPIC-01 | Epic | - | Sistema Governamental | 1 | Programa | Proposed | `mvp`, `audit` |
-| C-REQ-01 | Requirement | C-EPIC-01 | Controle de acesso por perfil | 1 | Risk 1 / Size 8 | Active | `audit`, `security` |
-| C-CR-01 | Change Request | C-REQ-01 | Alteracao da politica de autenticacao | 1 | Risk 1 / Size 5 | Active | `security` |
-| C-TASK-01 | Task | C-CR-01 | Atualizar regras de permissao | 1 | 3h | Active | `security` |
-| C-TASK-02 | Task | C-CR-01 | Registrar criterio de auditoria | 1 | 2h | Proposed | `audit` |
-| C-TASK-03 | Task | C-CR-01 | Revisar impacto da mudanca | 2 | 2h | Proposed | `risk` |
-| C-CR-02 | Change Request | C-REQ-01 | Exigir dupla aprovacao para perfil administrador | 1 | Risk 1 / Size 5 | Proposed | `approval` |
-| C-TASK-04 | Task | C-CR-02 | Documentar fluxo de aprovacao | 1 | 2h | Proposed | `audit` |
-| C-TASK-05 | Task | C-CR-02 | Ajustar tela de solicitacoes de mudanca | 2 | 3h | Proposed | `frontend` |
-| C-REQ-02 | Requirement | C-EPIC-01 | Historico de aprovacoes | 2 | Risk 2 / Size 5 | Proposed | `audit` |
-| C-CR-03 | Change Request | C-REQ-02 | Registrar data, responsavel e justificativa da aprovacao | 2 | Risk 2 / Size 3 | Proposed | `audit` |
-| C-TASK-06 | Task | C-CR-03 | Definir campos minimos do historico | 2 | 2h | Proposed | `governance` |
-| C-TASK-07 | Task | C-CR-03 | Registrar exemplo de evidencia no work item | 2 | 1h | Proposed | `evidence` |
-| C-REQ-03 | Requirement | C-EPIC-01 | Evidencia de entrega por pipeline | 2 | Risk 2 / Size 3 | Active | `pipeline`, `audit` |
-| C-CR-04 | Change Request | C-REQ-03 | Incluir execucao de pipeline como evidencia de validacao | 2 | Risk 2 / Size 2 | Active | `pipeline` |
-| C-TASK-08 | Task | C-CR-04 | Conferir artefato `cmmi-governance-site` | 2 | 1h | Proposed | `pipeline` |
-| C-TASK-09 | Task | C-CR-04 | Registrar link da execucao da pipeline | 2 | 1h | Proposed | `evidence` |
-| C-REQ-04 | Requirement | C-EPIC-01 | Relatorio de acessos administrativos | 3 | Risk 3 / Size 8 | Proposed | `future` |
-| C-CR-05 | Change Request | C-REQ-04 | Adicionar filtros por periodo e perfil | 4 | Risk 3 / Size 5 | Proposed | `future` |
+Para Tasks, use `OE` como Original Estimate, `RW` como Remaining Work e `CW`
+como Completed Work.
+
+| ID | Tipo | Pai | Titulo | Prioridade | Planejamento e risco | Trabalho da Task | Estado inicial | Tags |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| C-EPIC-01 | Epic | - | Sistema Governamental | 1 | - | - | Proposed | `mvp`, `audit` |
+| C-FEAT-01 | Feature | C-EPIC-01 | Governanca de acessos administrativos | 1 | Business Value 100 | - | Active | `mvp`, `audit` |
+| C-REQ-01 | Requirement | C-FEAT-01 | Controle de acesso por perfil | 1 | Risk 1; Size 8 | - | Active | `audit`, `security` |
+| C-CR-01 | Change Request | C-REQ-01 | Alteracao da politica de autenticacao | 1 | Risk 1; justificativa obrigatoria | - | Active | `security` |
+| C-TASK-01 | Task | C-REQ-01 | Atualizar regras de permissao | 1 | - | Discipline Development; OE 3; RW 3; CW 0 | Active | `security` |
+| C-TASK-02 | Task | C-REQ-01 | Registrar criterio de auditoria | 1 | - | Discipline Analysis; OE 2; RW 2; CW 0 | Proposed | `audit` |
+| C-TASK-03 | Task | C-CR-01 | Revisar impacto da mudanca | 2 | - | Discipline Analysis; OE 2; RW 2; CW 0 | Proposed | `risk` |
+| C-CR-02 | Change Request | C-REQ-01 | Exigir dupla aprovacao para perfil administrador | 1 | Risk 1; justificativa obrigatoria | - | Proposed | `approval` |
+| C-TASK-04 | Task | C-CR-02 | Documentar fluxo de aprovacao | 1 | - | Discipline User Education; OE 2; RW 2; CW 0 | Proposed | `audit` |
+| C-TASK-05 | Task | C-CR-02 | Ajustar tela de solicitacoes de mudanca | 2 | - | Discipline Development; OE 3; RW 3; CW 0 | Proposed | `frontend` |
+| C-REQ-02 | Requirement | C-FEAT-01 | Historico de aprovacoes | 2 | Risk 2; Size 5 | - | Proposed | `audit` |
+| C-CR-03 | Change Request | C-REQ-02 | Registrar data, responsavel e justificativa da aprovacao | 2 | Risk 2; justificativa obrigatoria | - | Proposed | `audit` |
+| C-TASK-06 | Task | C-REQ-02 | Definir campos minimos do historico | 2 | - | Discipline Analysis; OE 2; RW 2; CW 0 | Proposed | `governance` |
+| C-TASK-07 | Task | C-CR-03 | Registrar exemplo de evidencia no work item | 2 | - | Discipline User Education; OE 1; RW 1; CW 0 | Proposed | `evidence` |
+| C-FEAT-02 | Feature | C-EPIC-01 | Evidencias e auditoria operacional | 2 | Business Value 80 | - | Active | `pipeline`, `audit` |
+| C-REQ-03 | Requirement | C-FEAT-02 | Evidencia de entrega por pipeline | 2 | Risk 2; Size 3 | - | Active | `pipeline`, `audit` |
+| C-CR-04 | Change Request | C-REQ-03 | Incluir execucao de pipeline como evidencia de validacao | 2 | Risk 2; justificativa obrigatoria | - | Active | `pipeline` |
+| C-TASK-08 | Task | C-REQ-03 | Conferir artefato `cmmi-governance-site` | 2 | - | Discipline Test; OE 1; RW 1; CW 0 | Proposed | `pipeline` |
+| C-TASK-09 | Task | C-CR-04 | Registrar link da execucao da pipeline | 2 | - | Discipline User Education; OE 1; RW 1; CW 0 | Proposed | `evidence` |
+| C-REQ-04 | Requirement | C-FEAT-02 | Relatorio de acessos administrativos | 3 | Risk 3; Size 8 | - | Proposed | `future` |
+| C-CR-05 | Change Request | C-REQ-04 | Adicionar filtros por periodo e perfil | 4 | Risk 3; justificativa obrigatoria | - | Proposed | `future` |
 
 ## Detalhes para preencher
 
@@ -141,7 +159,7 @@ Criterios de aceite:
 
 - Campos minimos definidos.
 - Exemplo de evidencia registrado no Azure Boards.
-- Relacao com Change Request criada.
+- Relacao com Feature e Change Request criada.
 
 ### C-REQ-03: Evidencia de entrega por pipeline
 
@@ -160,7 +178,8 @@ Criterios de aceite:
 
 1. Use a tag `audit` em pelo menos 3 itens.
 2. Mova `C-REQ-01` para `Active`.
-3. Mova `C-TASK-08` para `Done` depois de conferir o artefato.
+3. Mova `C-TASK-08` para `Closed` depois de conferir o artefato e atualize
+   Remaining Work para `0` e Completed Work para `1`.
 4. Registre uma justificativa em `C-CR-02`.
 5. Execute a pipeline com a nota `Evidencia registrada pela equipe CMMI`.
 
@@ -174,7 +193,7 @@ Criterios de aceite:
 ## Dashboard recomendado
 
 - Query Results: Requirements ativos.
+- Chart for Work Items: Features por estado.
 - Chart for Work Items: Change Requests por estado.
 - Markdown: riscos, aprovacoes e governanca.
 - Build History: pipeline `cmmi-governance`.
-

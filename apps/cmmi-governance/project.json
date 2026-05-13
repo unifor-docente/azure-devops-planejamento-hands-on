@@ -3,7 +3,7 @@
   "name": "Sistema Governamental",
   "process": "CMMI",
   "scenario": "Sistema com fluxo formal para controle de acesso, solicitacoes de mudanca e registro de aprovacao.",
-  "workItemTypes": ["Epic", "Requirement", "Change Request", "Task"],
+  "workItemTypes": ["Epic", "Feature", "Requirement", "Change Request", "Task"],
   "metrics": [
     {
       "name": "Lead Time de Mudanca",
@@ -24,4 +24,3 @@
     "Pipeline executado com sucesso"
   ]
 }
-
