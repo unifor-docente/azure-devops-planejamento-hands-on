@@ -148,8 +148,7 @@ Tempo sugerido: 25 minutos.
 1. Acesse Boards.
 2. Mova itens entre estados para simular andamento.
 3. Atribua responsaveis.
-4. Ajuste Remaining Work ou Completed Work em pelo menos uma Task, quando
-   disponivel.
+4. Ajuste Activity e Remaining Work em pelo menos uma Task, quando disponivel.
 5. Para Scrum, crie ou use a sprint `Sprint 01 - PIX`.
 6. Para Agile, use o board e acompanhe fluxo por estado.
 7. Para CMMI, destaque Requirements e Change Requests em estados diferentes.

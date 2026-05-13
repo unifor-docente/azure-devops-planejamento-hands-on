@@ -31,6 +31,7 @@ Preenchimento minimo:
 - Assigned To
 - Priority
 - Effort nas Issues, quando disponivel
+- Activity e Remaining Work nas Tasks
 - Tags
 - Criterios de aceite na descricao
 - Relacionamento entre Epic, Issues e Tasks
@@ -53,33 +54,33 @@ Effort das Issues:
 - `8`: item grande para a aula.
 
 No processo Basic, nao preencha Effort no Epic. Use o Epic para agrupar as
-Issues e deixe o tamanho relativo nas Issues filhas. Para Tasks, use horas no
-campo de trabalho disponivel ou registre a estimativa na descricao.
+Issues e deixe o tamanho relativo nas Issues filhas. Para Tasks, nao use
+Effort; preencha Activity e Remaining Work.
 
 ## Backlog realista
 
 Crie os itens abaixo no Azure Boards. Depois relacione cada Task a sua Issue e
 cada Issue ao Epic.
 
-| ID | Tipo | Pai | Titulo | Prioridade | Estimativa | Estado inicial | Tags |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| B-EPIC-01 | Epic | - | Implantar Portal do Cliente | 1 | - | To Do | `mvp` |
-| B-ISS-01 | Issue | B-EPIC-01 | Login do cliente | 1 | 8 | To Do | `mvp`, `customer-visible` |
-| B-TASK-01 | Task | B-ISS-01 | Criar formulario de autenticacao | 1 | 3h | To Do | `frontend` |
-| B-TASK-02 | Task | B-ISS-01 | Validar mensagem de erro de login | 2 | 2h | To Do | `quality` |
-| B-TASK-03 | Task | B-ISS-01 | Revisar texto da tela de login | 3 | 1h | To Do | `ux` |
-| B-ISS-02 | Issue | B-EPIC-01 | Consulta de solicitacoes | 1 | 8 | Doing | `mvp`, `customer-visible` |
-| B-TASK-04 | Task | B-ISS-02 | Exibir lista de solicitacoes mockadas | 1 | 3h | Doing | `frontend` |
-| B-TASK-05 | Task | B-ISS-02 | Adicionar status visual das solicitacoes | 2 | 2h | To Do | `ux` |
-| B-TASK-06 | Task | B-ISS-02 | Validar contadores do painel | 2 | 2h | To Do | `quality` |
-| B-ISS-03 | Issue | B-EPIC-01 | Comunicados ao cliente | 2 | 5 | To Do | `customer-visible` |
-| B-TASK-07 | Task | B-ISS-03 | Criar area de comunicado operacional | 2 | 2h | To Do | `frontend` |
-| B-TASK-08 | Task | B-ISS-03 | Definir mensagem de indisponibilidade | 3 | 1h | To Do | `content` |
-| B-ISS-04 | Issue | B-EPIC-01 | Evidencia de entrega pela pipeline | 1 | 5 | To Do | `pipeline` |
-| B-TASK-09 | Task | B-ISS-04 | Conferir artefato publicado | 1 | 1h | To Do | `pipeline` |
-| B-TASK-10 | Task | B-ISS-04 | Registrar link da execucao da pipeline | 1 | 1h | To Do | `pipeline` |
-| B-ISS-05 | Issue | B-EPIC-01 | Ajustes de acessibilidade | 3 | 3 | To Do | `accessibility` |
-| B-TASK-11 | Task | B-ISS-05 | Revisar contraste e textos dos botoes | 3 | 2h | To Do | `ux` |
+| ID | Tipo | Pai | Titulo | Prioridade | Effort da Issue | Activity da Task | Remaining Work da Task | Estado inicial | Tags |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| B-EPIC-01 | Epic | - | Implantar Portal do Cliente | 1 | - | - | - | To Do | `mvp` |
+| B-ISS-01 | Issue | B-EPIC-01 | Login do cliente | 1 | 8 | - | - | To Do | `mvp`, `customer-visible` |
+| B-TASK-01 | Task | B-ISS-01 | Criar formulario de autenticacao | 1 | - | Development | 3 | To Do | `frontend` |
+| B-TASK-02 | Task | B-ISS-01 | Validar mensagem de erro de login | 2 | - | Testing | 2 | To Do | `quality` |
+| B-TASK-03 | Task | B-ISS-01 | Revisar texto da tela de login | 3 | - | Design | 1 | To Do | `ux` |
+| B-ISS-02 | Issue | B-EPIC-01 | Consulta de solicitacoes | 1 | 8 | - | - | Doing | `mvp`, `customer-visible` |
+| B-TASK-04 | Task | B-ISS-02 | Exibir lista de solicitacoes mockadas | 1 | - | Development | 3 | Doing | `frontend` |
+| B-TASK-05 | Task | B-ISS-02 | Adicionar status visual das solicitacoes | 2 | - | Design | 2 | To Do | `ux` |
+| B-TASK-06 | Task | B-ISS-02 | Validar contadores do painel | 2 | - | Testing | 2 | To Do | `quality` |
+| B-ISS-03 | Issue | B-EPIC-01 | Comunicados ao cliente | 2 | 5 | - | - | To Do | `customer-visible` |
+| B-TASK-07 | Task | B-ISS-03 | Criar area de comunicado operacional | 2 | - | Development | 2 | To Do | `frontend` |
+| B-TASK-08 | Task | B-ISS-03 | Definir mensagem de indisponibilidade | 3 | - | Documentation | 1 | To Do | `content` |
+| B-ISS-04 | Issue | B-EPIC-01 | Evidencia de entrega pela pipeline | 1 | 5 | - | - | To Do | `pipeline` |
+| B-TASK-09 | Task | B-ISS-04 | Conferir artefato publicado | 1 | - | Deployment | 1 | To Do | `pipeline` |
+| B-TASK-10 | Task | B-ISS-04 | Registrar link da execucao da pipeline | 1 | - | Deployment | 1 | To Do | `pipeline` |
+| B-ISS-05 | Issue | B-EPIC-01 | Ajustes de acessibilidade | 3 | 3 | - | - | To Do | `accessibility` |
+| B-TASK-11 | Task | B-ISS-05 | Revisar contraste e textos dos botoes | 3 | - | Design | 2 | To Do | `ux` |
 
 ## Detalhes para preencher
 

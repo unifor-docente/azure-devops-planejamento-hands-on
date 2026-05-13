@@ -5,7 +5,7 @@
 - [ ] Backlog criado com hierarquia coerente.
 - [ ] Work items possuem descricao clara.
 - [ ] Prioridade preenchida e justificada.
-- [ ] Story Points, Effort, Size ou Remaining Work preenchido quando disponivel.
+- [ ] Story Points, Effort, Size, Activity ou Remaining Work preenchido quando disponivel.
 - [ ] Criterios de aceite preenchidos.
 - [ ] Pelo menos um risco, bloqueio ou dependencia registrado.
 - [ ] Pelo menos uma sprint ou iteracao configurada.

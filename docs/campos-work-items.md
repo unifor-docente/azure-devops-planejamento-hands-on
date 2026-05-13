@@ -28,8 +28,9 @@ comentario.
 | --- | --- | --- | --- |
 | Story Points | Agile, em User Story | Tamanho relativo da historia | Use Fibonacci simples: `1`, `2`, `3`, `5`, `8`, `13`. |
 | Effort | Scrum, Basic ou alguns templates | Tamanho relativo do item | Use como pontos relativos quando estiver em PBI ou Issue. Em Epic, preencha somente se o processo expuser esse campo; no Basic, mantenha Effort nas Issues. |
-| Original Estimate | Task | Estimativa inicial de horas | Informe horas simbolicas. Ex: `2`, `4`, `6`. |
-| Remaining Work | Task | Trabalho restante em horas | Atualize quando mover a tarefa no board. |
+| Activity | Task | Tipo de atividade da tarefa | No Basic, use em Task junto com Remaining Work. Ex: `Development`, `Testing`, `Design`, `Documentation`, `Deployment`. |
+| Original Estimate | Task | Estimativa inicial de horas | Informe horas simbolicas quando o processo exibir o campo. No Basic, use Remaining Work. |
+| Remaining Work | Task | Trabalho restante em horas | Atualize quando mover a tarefa no board. No Basic, este e o campo de horas da Task. |
 | Completed Work | Task | Trabalho ja concluido em horas | Preencha quando uma tarefa for finalizada. |
 | Business Value | Feature, PBI, Requirement | Valor para negocio/usuario | Use escala `1` a `100`; quanto maior, mais valor. |
 | Risk | CMMI ou campos personalizados | Risco de prazo, escopo ou conformidade | Use `1` alto, `2` medio, `3` baixo, se o campo existir. |

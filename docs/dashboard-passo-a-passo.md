@@ -82,6 +82,8 @@ Colunas recomendadas:
 - Assigned To
 - Priority
 - Effort
+- Activity
+- Remaining Work
 - Tags
 
 Ordem sugerida:
