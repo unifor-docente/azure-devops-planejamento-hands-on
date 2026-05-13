@@ -30,7 +30,7 @@ Preenchimento minimo:
 - State
 - Assigned To
 - Priority
-- Effort, quando disponivel
+- Effort nas Issues, quando disponivel
 - Tags
 - Criterios de aceite na descricao
 - Relacionamento entre Epic, Issues e Tasks
@@ -44,7 +44,7 @@ Prioridade:
 - `3`: melhoria ou complemento.
 - `4`: pode ficar fora.
 
-Effort:
+Effort das Issues:
 
 - `1`: ajuste simples.
 - `2`: tarefa pequena.
@@ -52,14 +52,18 @@ Effort:
 - `5`: item com varias etapas.
 - `8`: item grande para a aula.
 
+No processo Basic, nao preencha Effort no Epic. Use o Epic para agrupar as
+Issues e deixe o tamanho relativo nas Issues filhas. Para Tasks, use horas no
+campo de trabalho disponivel ou registre a estimativa na descricao.
+
 ## Backlog realista
 
 Crie os itens abaixo no Azure Boards. Depois relacione cada Task a sua Issue e
 cada Issue ao Epic.
 
-| ID | Tipo | Pai | Titulo | Prioridade | Effort | Estado inicial | Tags |
+| ID | Tipo | Pai | Titulo | Prioridade | Estimativa | Estado inicial | Tags |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| B-EPIC-01 | Epic | - | Implantar Portal do Cliente | 1 | 34 | To Do | `mvp` |
+| B-EPIC-01 | Epic | - | Implantar Portal do Cliente | 1 | - | To Do | `mvp` |
 | B-ISS-01 | Issue | B-EPIC-01 | Login do cliente | 1 | 8 | To Do | `mvp`, `customer-visible` |
 | B-TASK-01 | Task | B-ISS-01 | Criar formulario de autenticacao | 1 | 3h | To Do | `frontend` |
 | B-TASK-02 | Task | B-ISS-01 | Validar mensagem de erro de login | 2 | 2h | To Do | `quality` |
@@ -166,4 +170,3 @@ Criterios de aceite:
 - Chart for Work Items: Issues por estado.
 - Build History: pipeline `basic-portal`.
 - Markdown: objetivo do MVP, riscos e link da pipeline.
-

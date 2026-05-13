@@ -27,7 +27,7 @@ comentario.
 | Campo | Onde costuma aparecer | O que representa | Como preencher |
 | --- | --- | --- | --- |
 | Story Points | Agile, em User Story | Tamanho relativo da historia | Use Fibonacci simples: `1`, `2`, `3`, `5`, `8`, `13`. |
-| Effort | Scrum, Basic ou alguns templates | Tamanho relativo do item | Use como pontos relativos quando estiver em PBI, Issue ou Epic. |
+| Effort | Scrum, Basic ou alguns templates | Tamanho relativo do item | Use como pontos relativos quando estiver em PBI ou Issue. Em Epic, preencha somente se o processo expuser esse campo; no Basic, mantenha Effort nas Issues. |
 | Original Estimate | Task | Estimativa inicial de horas | Informe horas simbolicas. Ex: `2`, `4`, `6`. |
 | Remaining Work | Task | Trabalho restante em horas | Atualize quando mover a tarefa no board. |
 | Completed Work | Task | Trabalho ja concluido em horas | Preencha quando uma tarefa for finalizada. |
