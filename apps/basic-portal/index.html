@@ -7,37 +7,117 @@
   <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-  <main class="shell">
-    <section class="hero">
-      <p class="eyebrow">Basic • Epic → Issue → Task</p>
-      <h1>Portal do Cliente</h1>
-      <p>Acompanhamento objetivo de solicitacoes, prazos e comunicados para clientes.</p>
-    </section>
+  <section class="login" id="loginView">
+    <div class="login-art" aria-hidden="true">
+      <div class="brand brand-light"><span class="logo">PC</span> Portal do Cliente</div>
+      <h1>Acompanhe suas solicitações em um só lugar.</h1>
+      <p>Status em tempo real, comunicados da empresa e histórico completo do seu atendimento.</p>
+      <ul class="login-bullets">
+        <li>Consulta de solicitações</li>
+        <li>Comunicados operacionais</li>
+        <li>Abertura de novos pedidos</li>
+      </ul>
+    </div>
+    <form class="login-card" id="loginForm" novalidate>
+      <div class="brand"><span class="logo">PC</span> Portal do Cliente</div>
+      <h2>Entrar</h2>
+      <p class="muted">Use qualquer e-mail e senha para a demonstração.</p>
+      <label>E-mail
+        <input type="email" id="email" placeholder="voce@empresa.com.br" autocomplete="username">
+      </label>
+      <label>Senha
+        <input type="password" id="password" placeholder="••••••••" autocomplete="current-password">
+      </label>
+      <p class="error" id="loginError" role="alert"></p>
+      <button type="submit" class="btn btn-primary btn-block">Entrar no portal</button>
+    </form>
+  </section>
 
-    <section class="summary-grid" aria-label="Resumo operacional">
-      <article>
-        <span class="label">Solicitacoes</span>
-        <strong id="totalRequests">0</strong>
-      </article>
-      <article>
-        <span class="label">Em atendimento</span>
-        <strong id="activeRequests">0</strong>
-      </article>
-      <article>
-        <span class="label">Concluidas</span>
-        <strong id="doneRequests">0</strong>
-      </article>
-    </section>
-
-    <section class="panel">
-      <div class="panel-header">
-        <h2>Solicitacoes recentes</h2>
-        <span class="badge">MVP</span>
+  <div class="app" id="appView" hidden>
+    <header class="topbar">
+      <div class="brand"><span class="logo">PC</span> Portal do Cliente</div>
+      <nav class="nav">
+        <a href="#solicitacoes" class="active">Solicitações</a>
+        <a href="#comunicados">Comunicados</a>
+      </nav>
+      <div class="user">
+        <span class="avatar" id="avatar">MS</span>
+        <button type="button" class="btn btn-ghost" id="logoutButton">Sair</button>
       </div>
-      <div id="requestList" class="request-list"></div>
-    </section>
-  </main>
+    </header>
+
+    <main class="shell">
+      <section class="welcome">
+        <div>
+          <p class="eyebrow">Basic · Epic → Issue → Task</p>
+          <h1 id="greeting">Olá!</h1>
+          <p class="muted">Veja o andamento das suas solicitações e os avisos mais recentes.</p>
+        </div>
+        <button type="button" class="btn btn-primary" id="newRequestButton">+ Nova solicitação</button>
+      </section>
+
+      <section class="stats" id="stats"></section>
+
+      <div class="grid">
+        <section class="card" id="solicitacoes">
+          <div class="card-head">
+            <h2>Minhas solicitações</h2>
+            <div class="chips" id="filters">
+              <button type="button" class="chip active" data-filter="todas">Todas</button>
+              <button type="button" class="chip" data-filter="Aberta">Abertas</button>
+              <button type="button" class="chip" data-filter="Em andamento">Em andamento</button>
+              <button type="button" class="chip" data-filter="Concluída">Concluídas</button>
+            </div>
+          </div>
+          <ul class="requests" id="requestList"></ul>
+        </section>
+
+        <aside class="card" id="comunicados">
+          <div class="card-head"><h2>Comunicados</h2></div>
+          <ul class="notices">
+            <li class="notice warning">
+              <strong>Manutenção programada</strong>
+              <p>Sábado, das 22h às 23h, o portal poderá ficar indisponível por alguns minutos.</p>
+            </li>
+            <li class="notice info">
+              <strong>Novo canal de atendimento</strong>
+              <p>Agora você também pode acompanhar suas solicitações pelo celular.</p>
+            </li>
+            <li class="notice success">
+              <strong>Tempo médio de resposta</strong>
+              <p>Reduzimos o tempo médio de resposta para 4 horas úteis.</p>
+            </li>
+          </ul>
+        </aside>
+      </div>
+    </main>
+
+    <footer class="delivery" id="buildInfo"></footer>
+  </div>
+
+  <dialog id="requestDialog">
+    <form method="dialog" id="requestForm" class="dialog-form">
+      <h2>Nova solicitação</h2>
+      <label>Assunto
+        <input type="text" id="subject" placeholder="Ex.: Segunda via de boleto" required>
+      </label>
+      <label>Categoria
+        <select id="category">
+          <option>Financeiro</option>
+          <option>Suporte técnico</option>
+          <option>Comercial</option>
+          <option>Cadastro</option>
+        </select>
+      </label>
+      <p class="error" id="requestError" role="alert"></p>
+      <div class="dialog-actions">
+        <button type="button" class="btn btn-ghost" id="cancelRequest">Cancelar</button>
+        <button type="submit" class="btn btn-primary">Abrir solicitação</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="./build-info.js"></script>
   <script src="./app.js"></script>
 </body>
 </html>
-

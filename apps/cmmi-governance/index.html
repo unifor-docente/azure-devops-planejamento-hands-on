@@ -7,43 +7,90 @@
   <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-  <main class="shell">
-    <section class="hero">
-      <p class="eyebrow">CMMI • Epic → Feature → Requirement → Task</p>
-      <h1>Sistema Governamental</h1>
-      <p>Controle formal de acesso com registro de mudancas, aprovacao e auditoria.</p>
-    </section>
+  <div class="govbar">Secretaria de Gestão Digital · ambiente de demonstração (fictício)</div>
 
-    <section class="governance-grid">
-      <article class="panel">
-        <p class="eyebrow">Requisito</p>
-        <h2>Controle de acesso por perfil</h2>
-        <p>Perfis administrativos devem seguir trilha de aprovacao antes da ativacao.</p>
-      </article>
-
-      <article class="panel">
-        <p class="eyebrow">Indicadores</p>
-        <dl>
-          <div>
-            <dt>Change Requests</dt>
-            <dd id="changeTotal">0</dd>
-          </div>
-          <div>
-            <dt>Aprovadas</dt>
-            <dd id="approvedTotal">0</dd>
-          </div>
-        </dl>
-      </article>
-    </section>
-
-    <section class="panel">
-      <div class="panel-header">
-        <h2>Solicitacoes de mudanca</h2>
-        <span class="badge">Auditoria</span>
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="brand"><span class="logo">SG</span><div>Sistema Governamental<small>Governança de acessos</small></div></div>
+      <nav>
+        <a href="#painel" class="active">▦ Painel</a>
+        <a href="#mudancas">⇄ Solicitações de mudança</a>
+        <a href="#perfis">⚿ Perfis de acesso</a>
+        <a href="#auditoria">☰ Trilha de auditoria</a>
+      </nav>
+      <div class="user-box">
+        <label>Você está atuando como
+          <select id="actor">
+            <option>Gestora A. Ribeiro</option>
+            <option>Auditor B. Nogueira</option>
+            <option>Coordenador C. Pinto</option>
+          </select>
+        </label>
       </div>
-      <div id="changeList" class="change-list"></div>
-    </section>
-  </main>
+    </aside>
+
+    <main class="main">
+      <header class="page-head" id="painel">
+        <div>
+          <p class="eyebrow">CMMI · Epic → Feature → Requirement → Task · Change Request</p>
+          <h1>Painel de governança</h1>
+          <p class="muted">Controle de acesso por perfil com dupla aprovação e rastreabilidade para auditoria.</p>
+        </div>
+      </header>
+
+      <section class="kpis" id="kpis"></section>
+
+      <section class="card" id="mudancas">
+        <div class="card-head">
+          <h2>Solicitações de mudança</h2>
+          <span class="muted small">Perfis administrativos exigem 2 aprovações com justificativa</span>
+        </div>
+        <p class="notice-msg" id="notice" role="status" hidden></p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>ID</th><th>Mudança</th><th>Requisito</th><th>Risco</th><th>Aprovações</th><th>Status</th><th></th></tr></thead>
+            <tbody id="changes"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <div class="two-cols">
+        <section class="card" id="perfis">
+          <div class="card-head"><h2>Perfis de acesso</h2></div>
+          <ul class="profiles">
+            <li><span class="badge red">Administrador</span><p>Gestão total · exige dupla aprovação</p><strong>3 usuários</strong></li>
+            <li><span class="badge amber">Gestor</span><p>Aprova mudanças da sua área</p><strong>8 usuários</strong></li>
+            <li><span class="badge blue">Operador</span><p>Consulta e registra solicitações</p><strong>42 usuários</strong></li>
+            <li><span class="badge green">Auditor</span><p>Somente leitura + trilha completa</p><strong>2 usuários</strong></li>
+          </ul>
+        </section>
+
+        <section class="card" id="auditoria">
+          <div class="card-head"><h2>Trilha de auditoria</h2><span class="muted small" id="auditCount"></span></div>
+          <ol class="audit" id="audit"></ol>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <dialog id="decisionDialog">
+    <form method="dialog" class="dialog-form" id="decisionForm">
+      <h2 id="decisionTitle">Registrar decisão</h2>
+      <p class="muted" id="decisionSubtitle"></p>
+      <label>Justificativa (obrigatória)
+        <textarea id="justification" rows="3" placeholder="Explique o motivo da decisão para fins de auditoria."></textarea>
+      </label>
+      <p class="error" id="decisionError" role="alert"></p>
+      <div class="dialog-actions">
+        <button type="button" class="btn btn-ghost" id="cancelDecision">Cancelar</button>
+        <button type="submit" class="btn" id="confirmDecision">Confirmar</button>
+      </div>
+    </form>
+  </dialog>
+
+  <footer class="delivery" id="buildInfo"></footer>
+
+  <script src="./build-info.js"></script>
   <script src="./app.js"></script>
 </body>
 </html>

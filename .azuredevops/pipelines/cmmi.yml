@@ -58,6 +58,9 @@ steps:
 
   - script: node scripts/build.mjs $(appPath)
     displayName: Gerar site estatico
+    env:
+      AMBIENTE_SIMULADO: ${{ parameters.simulatedEnvironment }}
+      NOTA_ENTREGA: ${{ parameters.releaseNote }}
 
   - task: PublishPipelineArtifact@1
     displayName: Publicar artefato

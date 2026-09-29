@@ -3,38 +3,118 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Aplicativo Bancario PIX</title>
+  <title>Aplicativo Bancário PIX</title>
   <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
+  <header class="topbar">
+    <div class="brand"><span class="logo">N</span> Banco Nova <small>Aplicativo Bancário PIX</small></div>
+    <nav class="nav">
+      <a href="#">Início</a>
+      <a href="#" class="active">Área PIX</a>
+      <a href="#">Cartões</a>
+      <a href="#">Investimentos</a>
+    </nav>
+    <span class="avatar">AL</span>
+  </header>
+
   <main class="shell">
-    <section class="hero">
-      <p class="eyebrow">Scrum • Epic → Feature → PBI → Task</p>
-      <h1>Aplicativo Bancario PIX</h1>
-      <p>Fluxo simplificado para planejar, executar e validar uma entrega curta em sprint.</p>
-    </section>
+    <p class="eyebrow">Scrum · Epic → Feature → PBI → Task · Sprint 01 - PIX</p>
 
-    <section class="transfer">
-      <form id="pixForm">
-        <label>
-          Chave PIX
-          <input id="pixKey" name="pixKey" value="cliente@email.com" autocomplete="off">
-        </label>
-        <label>
-          Valor
-          <input id="amount" name="amount" value="150.00" inputmode="decimal">
-        </label>
-        <button type="submit">Validar transferencia</button>
-      </form>
+    <div class="grid">
+      <aside class="left">
+        <section class="balance-card">
+          <div class="balance-top">
+            <span>Saldo disponível</span>
+            <button type="button" class="eye" id="toggleBalance" aria-label="Mostrar ou ocultar saldo">👁</button>
+          </div>
+          <strong id="balance">R$ 0,00</strong>
+          <small>Conta corrente · Ag. 0001 · CC 12345-6</small>
+        </section>
 
-      <aside class="receipt" aria-live="polite">
-        <p class="eyebrow">Resumo</p>
-        <h2 id="resultTitle">Aguardando validacao</h2>
-        <p id="resultText">Preencha os dados para simular a transferencia.</p>
+        <section class="card">
+          <h2 class="small-title">Limite PIX do piloto</h2>
+          <div class="limit"><span id="limitBar"></span></div>
+          <p class="muted" id="limitText"></p>
+        </section>
+
+        <section class="card shortcuts">
+          <button type="button" class="shortcut">⇄<span>Transferir</span></button>
+          <button type="button" class="shortcut">▦<span>QR Code</span></button>
+          <button type="button" class="shortcut">⌁<span>Copia e cola</span></button>
+          <button type="button" class="shortcut">✎<span>Minhas chaves</span></button>
+        </section>
       </aside>
-    </section>
+
+      <section class="card pix">
+        <div class="pix-head">
+          <h1>Transferência via PIX</h1>
+          <ol class="wizard" id="wizard">
+            <li class="active">Dados</li><li>Confirmação</li><li>Comprovante</li>
+          </ol>
+        </div>
+
+        <form id="stepForm" class="step" novalidate>
+          <label>Tipo de chave
+            <select id="keyType">
+              <option value="cpf">CPF</option>
+              <option value="email">E-mail</option>
+              <option value="phone">Celular</option>
+              <option value="random">Chave aleatória</option>
+            </select>
+          </label>
+          <label>Chave PIX
+            <input id="key" placeholder="000.000.000-00" autocomplete="off">
+          </label>
+          <label>Valor
+            <input id="amount" inputmode="decimal" placeholder="R$ 0,00" autocomplete="off">
+          </label>
+          <label>Mensagem (opcional)
+            <input id="message" maxlength="60" placeholder="Ex.: Almoço de sexta">
+          </label>
+          <p class="error" id="formError" role="alert"></p>
+          <button type="submit" class="btn">Continuar</button>
+        </form>
+
+        <div id="stepConfirm" class="step" hidden>
+          <div class="summary">
+            <div class="receiver"><span class="avatar big" id="receiverInitials"></span><div><strong id="receiverName"></strong><p class="muted" id="receiverKey"></p></div></div>
+            <dl>
+              <dt>Valor</dt><dd id="confirmAmount"></dd>
+              <dt>Tarifa</dt><dd>Grátis</dd>
+              <dt>Mensagem</dt><dd id="confirmMessage"></dd>
+              <dt>Data</dt><dd>Agora</dd>
+            </dl>
+          </div>
+          <div class="actions">
+            <button type="button" class="btn btn-ghost" id="backButton">Voltar</button>
+            <button type="button" class="btn" id="confirmButton">Confirmar PIX</button>
+          </div>
+        </div>
+
+        <div id="stepReceipt" class="step receipt" hidden>
+          <div class="check">✓</div>
+          <h2>PIX enviado com sucesso!</h2>
+          <p class="big-amount" id="receiptAmount"></p>
+          <dl>
+            <dt>Para</dt><dd id="receiptName"></dd>
+            <dt>Data e hora</dt><dd id="receiptDate"></dd>
+            <dt>ID da transação</dt><dd class="mono" id="receiptId"></dd>
+          </dl>
+          <button type="button" class="btn" id="newPixButton">Fazer outro PIX</button>
+        </div>
+      </section>
+
+      <aside class="card statement">
+        <h2 class="small-title">Extrato</h2>
+        <ul id="statement"></ul>
+      </aside>
+    </div>
   </main>
+
+  <footer class="delivery" id="buildInfo"></footer>
+
+  <script src="./build-info.js"></script>
   <script src="./app.js"></script>
 </body>
 </html>
-

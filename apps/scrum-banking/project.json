@@ -1,6 +1,6 @@
 {
   "id": "scrum-banking",
-  "name": "Aplicativo Bancario PIX",
+  "name": "Aplicativo Bancário PIX",
   "process": "Scrum",
   "scenario": "Aplicativo bancario com simulacao de transferencia PIX e validacoes basicas para sprint curta.",
   "workItemTypes": ["Epic", "Feature", "Product Backlog Item", "Task"],

@@ -35,6 +35,19 @@ for (const project of selectedProjects) {
     cpSync(join(project.appPath, file), join(target, basename(file)));
   }
 
+  const buildInfo = {
+    buildNumber: process.env.BUILD_BUILDNUMBER || 'execucao-local',
+    environment: process.env.AMBIENTE_SIMULADO || 'local',
+    releaseNote: process.env.NOTA_ENTREGA || 'Build gerado fora da pipeline',
+    requestedFor: process.env.BUILD_REQUESTEDFOR || '',
+    generatedAt: new Date().toISOString()
+  };
+  writeFileSync(
+    join(target, 'build-info.js'),
+    `window.BUILD_INFO = ${JSON.stringify(buildInfo, null, 2)};\n`,
+    'utf8'
+  );
+
   writeFileSync(
     join(target, 'build-info.json'),
     JSON.stringify(
@@ -43,7 +56,8 @@ for (const project of selectedProjects) {
         process: project.process,
         generatedAt: new Date().toISOString(),
         sourcePath: project.appPath,
-        suggestedArtifact: `${project.id}-site`
+        suggestedArtifact: `${project.id}-site`,
+        ...buildInfo
       },
       null,
       2

@@ -7,25 +7,96 @@
   <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
+  <header class="topbar">
+    <div class="brand"><span class="logo">SE</span> Sabor Express <small>Sistema de Delivery</small></div>
+    <nav class="nav">
+      <a href="#" class="active">Meus pedidos</a>
+      <a href="#">Restaurantes</a>
+      <a href="#">Promoções</a>
+    </nav>
+    <span class="avatar">JL</span>
+  </header>
+
   <main class="shell">
     <section class="hero">
-      <p class="eyebrow">Agile • Epic → Feature → User Story → Task</p>
-      <h1>Sistema de Delivery</h1>
-      <p>Visao de pedido para reduzir incerteza do cliente e apoiar decisoes do time.</p>
-    </section>
-
-    <section class="order-panel">
       <div>
-        <p class="eyebrow">Pedido #A1029</p>
-        <h2>Combo executivo</h2>
-        <p class="muted">Previsao de entrega: <strong id="eta">32 min</strong></p>
+        <p class="eyebrow">Agile · Epic → Feature → User Story → Task</p>
+        <h1>Seu pedido está a caminho!</h1>
+        <p>Acompanhe cada etapa em tempo real, do restaurante até a sua porta.</p>
       </div>
-      <button id="advanceButton" type="button">Avancar status</button>
+      <div class="eta">
+        <span>Previsão de entrega</span>
+        <strong id="eta">32:00</strong>
+        <small id="etaLabel">minutos</small>
+      </div>
     </section>
 
-    <section class="timeline" id="timeline" aria-label="Linha do tempo do pedido"></section>
+    <div class="grid">
+      <section class="card tracking">
+        <div class="card-head">
+          <div>
+            <p class="eyebrow muted">Pedido #A1029</p>
+            <h2 id="statusTitle">Saiu para entrega</h2>
+          </div>
+          <button type="button" class="btn" id="advanceButton">Avançar status</button>
+        </div>
+
+        <ol class="stepper" id="stepper"></ol>
+        <div class="progress"><span id="progressBar"></span></div>
+
+        <div class="map" aria-hidden="true">
+          <svg viewBox="0 0 600 220" preserveAspectRatio="none">
+            <path class="road" d="M40 180 C 140 180, 160 60, 280 80 S 430 190, 560 50" />
+            <path class="route" id="route" d="M40 180 C 140 180, 160 60, 280 80 S 430 190, 560 50" />
+          </svg>
+          <span class="pin pin-start">🍔</span>
+          <span class="pin pin-end">🏠</span>
+          <span class="courier" id="courierDot">🛵</span>
+        </div>
+
+        <div class="courier-card">
+          <span class="avatar big">CM</span>
+          <div>
+            <strong>Carlos Mendes</strong>
+            <p class="muted">Moto · Placa ABC-1D23 · ★ 4,9</p>
+          </div>
+          <button type="button" class="btn btn-ghost" id="contactButton">Enviar mensagem</button>
+        </div>
+        <p class="toast" id="toast" role="status"></p>
+
+        <div class="rating" id="rating" hidden>
+          <h3>Como foi a sua entrega?</h3>
+          <div class="stars" id="stars">
+            <button type="button" data-v="1">★</button><button type="button" data-v="2">★</button><button type="button" data-v="3">★</button><button type="button" data-v="4">★</button><button type="button" data-v="5">★</button>
+          </div>
+          <p class="muted" id="ratingText">Toque nas estrelas para avaliar.</p>
+        </div>
+      </section>
+
+      <aside class="side">
+        <section class="card">
+          <div class="restaurant">
+            <span class="logo alt">BB</span>
+            <div><strong>Burger Bistrô</strong><p class="muted">Aldeota · 2,4 km</p></div>
+          </div>
+          <ul class="items" id="items"></ul>
+          <dl class="totals" id="totals"></dl>
+        </section>
+        <section class="card">
+          <h2 class="small-title">Pedidos anteriores</h2>
+          <ul class="history">
+            <li><span>Pizzaria Napoli</span><small>21/09 · R$ 68,90</small></li>
+            <li><span>Açaí da Praia</span><small>14/09 · R$ 32,50</small></li>
+            <li><span>Sushi Beira-Mar</span><small>06/09 · R$ 94,00</small></li>
+          </ul>
+        </section>
+      </aside>
+    </div>
   </main>
+
+  <footer class="delivery" id="buildInfo"></footer>
+
+  <script src="./build-info.js"></script>
   <script src="./app.js"></script>
 </body>
 </html>
-
