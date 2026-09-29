@@ -16,13 +16,11 @@ diferente.
 
 ## Como usar na aula
 
-1. Publique este diretorio como um repositorio publico no GitHub, por exemplo
-   `azure-devops-planejamento-hands-on`. (Concluído)
-2. No Azure DevOps, o instrutor cria uma organizacao e um projeto por equipe,
-   cada um com seu processo: Basic, Agile, Scrum ou CMMI.
-3. Cada equipe cria o backlog seguindo o roteiro em `docs/processos`.
-4. O instrutor cria uma pipeline por projeto apontando para o YAML
-   correspondente ao processo; as equipes executam e registram a evidencia.
+1. Cada equipe trabalha em um projeto do Azure DevOps com o seu processo:
+   Basic, Agile, Scrum ou CMMI.
+2. O projeto ja traz este repositorio, a pipeline da equipe e a sprint da aula.
+3. Cada equipe cria o backlog seguindo o guia do seu processo em `docs/processos`.
+4. A equipe executa a pipeline e registra a evidencia de entrega no backlog.
 5. Cada equipe monta um dashboard com widgets de Boards e Pipelines.
 
 O codigo e propositalmente simples. A aula deve concentrar a atencao nos
@@ -33,7 +31,8 @@ rastreabilidade, consultas, dashboards e indicadores.
 
 - `slides/Apresentacao_Azure_DevOps_2026-09-29.pptx` (e versao em PDF).
 - `praticas/Proposta_Aula_Pratica_AzureDevOps_UNIFOR_2026-09-29.pdf` (e versao
-  em DOCX): objetivo, estrutura, acessos, cronograma e avaliacao.
+  em DOCX): guia da aula pratica, com passo a passo, pagina de cada equipe,
+  checklist de entrega e criterios de avaliacao.
 
 ## Modelo de pipeline
 
@@ -64,7 +63,6 @@ O build gera uma pasta `dist` com os quatro miniapps estaticos.
 ## Material de apoio
 
 - `docs/roteiro-hands-on.md`: roteiro principal para os alunos.
-- `docs/guia-instrutor.md`: preparo e conducao da atividade.
 - `docs/campos-work-items.md`: guia de campos, estimativas e criterios.
 - `docs/dashboard-passo-a-passo.md`: instrucoes claras para consultas, graficos e dashboards.
 - `docs/processos/*.md`: backlog e tarefas por processo.

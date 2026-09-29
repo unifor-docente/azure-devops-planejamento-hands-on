@@ -19,9 +19,8 @@ de aceite, responsaveis, tags, relacionamento e evidencia de pipeline.
 | 3 | Scrum | `03-scrum-banking` | `docs/processos/scrum.md` |
 | 4 | CMMI | `04-cmmi-governance` | `docs/processos/cmmi.md` |
 
-Os projetos ja foram criados pelo instrutor com o processo correto. Cada equipe
-deve trabalhar dentro do seu projeto, usando a pipeline ja configurada como
-evidencia de entrega.
+Cada equipe trabalha dentro do seu projeto, que ja esta configurado com o
+processo correto e com a pipeline usada como evidencia de entrega.
 
 ## Papeis dentro da equipe
 
@@ -39,14 +38,13 @@ todos participem, inclusive quem nao e da area de tecnologia:
 
 Todos criam e editam work items; o papel indica quem cuida de cada parte.
 
-## Ponto de partida da aula
+## O que ja vem pronto no projeto da equipe
 
-Antes dos alunos iniciarem, o instrutor ja deve ter:
-
-- Criado os 4 projetos no Azure DevOps.
-- Configurado uma pipeline para cada projeto.
-- Executado a primeira pipeline de cada equipe.
-- Confirmado que cada pipeline publicou um artefato.
+- Processo correto (Basic, Agile, Scrum ou CMMI).
+- Repositorio com o codigo e estes guias em Repos > Files.
+- Pipeline da equipe com uma execucao inicial e artefato publicado.
+- Sprint da aula com datas (29/09 a 12/10/2026).
+- Pasta `Shared Queries > Dashboard da Equipe` para salvar as consultas.
 
 Os alunos nao precisam criar repositorio, configurar Terraform, criar recursos
 Azure ou fazer deploy real. A pratica simula a entrega usando pipeline, artefato
@@ -64,12 +62,11 @@ e logs.
 
 Tempo sugerido: 10 minutos.
 
-1. Abra o e-mail de convite do Azure DevOps e clique em `Join now`.
-   Entre com o mesmo e-mail que recebeu o convite.
-2. Acesse `https://dev.azure.com/` e entre na organizacao indicada pelo instrutor.
+1. Acesse `https://dev.azure.com/unifor-mba-gp-2026`.
+2. Entre com o seu login da aula (`nome.sobrenome@arijrtechnology.com.br`).
 3. Abra o projeto da sua equipe.
 4. Confirme se o menu Boards esta disponivel.
-5. Acesse Pipelines e abra a primeira execucao criada pelo instrutor.
+5. Acesse Pipelines e abra a execucao inicial da pipeline da equipe.
 6. Verifique os logs das etapas de teste, validacao, build e deploy simulado.
 7. Abra o artefato publicado pela pipeline.
 

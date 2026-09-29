@@ -18,12 +18,13 @@ Confirme estes pontos:
 - As consultas que serao usadas no dashboard devem ficar em `Shared Queries`,
   nao em `My Queries`.
 
-## Parte 1: Criar uma pasta de consultas
+## Parte 1: Localizar a pasta de consultas
 
 1. Acesse Boards.
-2. Clique em Queries.
-3. Em `Shared Queries`, crie uma pasta chamada `Dashboard da Equipe`.
-4. Se nao conseguir criar a pasta, peca ajuda ao instrutor. Pode ser permissao.
+2. Clique em Queries e depois em All.
+3. Em `Shared Queries`, localize a pasta `Dashboard da Equipe`. Ela ja existe
+   e e onde a equipe deve salvar as consultas.
+4. Se a pasta nao aparecer, peca ajuda ao instrutor.
 
 ## Parte 2: Criar a consulta principal
 

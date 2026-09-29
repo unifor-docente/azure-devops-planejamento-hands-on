@@ -1,7 +1,7 @@
 # Checklist do Projeto Azure DevOps
 
-- [ ] Projeto criado com o processo correto.
-- [ ] Equipe adicionada ao projeto.
+- [ ] Projeto da equipe aberto e processo correto identificado.
+- [ ] Todos os integrantes acessaram o projeto e os papeis foram definidos.
 - [ ] Backlog criado com hierarquia coerente.
 - [ ] Work items possuem descricao clara.
 - [ ] Prioridade preenchida e justificada.
@@ -10,13 +10,13 @@
 - [ ] Pelo menos um risco, bloqueio ou dependencia registrado.
 - [ ] Pelo menos uma sprint ou iteracao configurada.
 - [ ] Board com itens em estados diferentes.
-- [ ] Pipeline criada a partir do YAML da equipe.
+- [ ] Pipeline da equipe localizada em Pipelines.
 - [ ] Primeira execucao da pipeline revisada.
 - [ ] Pipeline executada com sucesso.
 - [ ] Parametros de ambiente e nota da entrega preenchidos.
 - [ ] Artefato publicado pela pipeline.
 - [ ] Deploy simulado concluido na pipeline.
-- [ ] Pasta `Dashboard da Equipe` criada em Shared Queries.
+- [ ] Pasta `Dashboard da Equipe` localizada em Shared Queries.
 - [ ] Consulta principal criada como `Flat list of work items`.
 - [ ] Consulta salva em Shared Queries.
 - [ ] Pelo menos dois graficos criados a partir da consulta.
