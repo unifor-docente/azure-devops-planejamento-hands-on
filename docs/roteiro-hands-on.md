@@ -36,7 +36,14 @@ todos participem, inclusive quem nao e da area de tecnologia:
 | Analista de indicadores | Cria as consultas e o dashboard da equipe. |
 | Responsavel pela entrega | Executa a pipeline e registra a evidencia no backlog. |
 
-Todos criam e editam work items; o papel indica quem cuida de cada parte.
+Os papeis sao um combinado da equipe: nao ha nada para configurar no Azure
+DevOps. Todos tem o mesmo acesso, criam e editam work items; o papel indica
+quem cuida de cada parte.
+
+Para registrar, o Gerente do projeto escreve na Description do Epic quem ficou
+com cada papel. Exemplo: `Papeis: Gerente do projeto - Ana; Product Owner -
+Bruno; Guardiao do backlog - Carla; Guardiao do board - Diego; Analista de
+indicadores - Elisa; Responsavel pela entrega - Fabio`.
 
 ## O que ja vem pronto no projeto da equipe
 
