@@ -4,3 +4,10 @@ node_modules/
 .DS_Store
 npm-debug.log*
 
+
+# Dados dos alunos: ficam apenas no computador do professor
+praticas/equipes_alunos.csv
+*_com-alunos.*
+# Versoes anteriores dos materiais (substituidas pelas de 29/09/2026)
+slides/Apresenta*o Azure DevOps.pdf
+praticas/Proposta_Aula_Pr*tica_AzureDevOps_UNIFOR.docx

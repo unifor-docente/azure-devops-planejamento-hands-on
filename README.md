@@ -29,6 +29,12 @@ O codigo e propositalmente simples. A aula deve concentrar a atencao nos
 artefatos de gestao: backlog, hierarquia de work items, estados, sprint,
 rastreabilidade, consultas, dashboards e indicadores.
 
+## Materiais da aula (29/09/2026)
+
+- `slides/Apresentacao_Azure_DevOps_2026-09-29.pptx` (e versao em PDF).
+- `praticas/Proposta_Aula_Pratica_AzureDevOps_UNIFOR_2026-09-29.pdf` (e versao
+  em DOCX): objetivo, estrutura, acessos, cronograma e avaliacao.
+
 ## Modelo de pipeline
 
 As pipelines usam o repositorio publico do GitHub como fonte e nao exigem
