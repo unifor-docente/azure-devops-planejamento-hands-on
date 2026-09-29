@@ -4,10 +4,49 @@
 
 1. Publique este diretorio em um repositorio publico no GitHub.
 2. Crie ou confirme a organizacao no Azure DevOps.
-3. Garanta que os alunos consigam criar projetos na organizacao.
-4. Compartilhe o link do GitHub e o link da organizacao Azure DevOps.
-5. Deixe uma conta com permissao de administrador preparada para destravar
+3. Configure o billing da organizacao (ver "Acessos e licencas").
+4. Crie os 4 projetos, cada um com o processo da equipe. Os alunos nao criam
+   projetos: eles entram direto no projeto da propria equipe.
+5. Crie e execute uma vez a pipeline de cada projeto.
+6. Convide os alunos e compartilhe o link do GitHub e da organizacao.
+7. Teste o acesso com uma conta de aluno em janela anonima: abrir o projeto,
+   criar um work item, mover um card e executar a pipeline.
+8. Deixe uma conta com permissao de administrador preparada para destravar
    acesso a GitHub/Azure Pipelines se necessario.
+
+## Acessos e licencas
+
+- O Azure DevOps inclui 5 usuarios Basic gratuitos por organizacao. O acesso
+  Stakeholder e gratuito, mas em projeto privado nao permite priorizar o
+  backlog, planejar sprint pelo painel Planning, definir capacidade nem criar
+  dashboards. Por isso, na aula todos os alunos usam Basic.
+- Basic adicional custa US$ 6 por usuario/mes, com cobranca proporcional aos
+  dias em que a licenca fica atribuida. Para uma turma de 24 alunos, 20
+  licencas pagas por um dia custam cerca de US$ 4.
+- Passo a passo:
+  1. Organization settings > Billing > Set up billing: vincule a assinatura
+     Azure. Isso tambem libera o job gratuito de Microsoft-hosted agents.
+  2. Em Billing, defina `Default access level` como `Basic`.
+  3. Organization settings > Policies: habilite `External guest access`
+     quando a organizacao estiver ligada ao Microsoft Entra ID.
+  4. Organization settings > Users > Add users: cole os e-mails da equipe
+     separados por `;`, com Access level `Basic`, o projeto da equipe e o
+     grupo `Contributors`.
+  5. Peca para a turma aceitar o convite antes da aula.
+- Depois da aula: Organization settings > Users > selecione os alunos >
+  Change access level > Stakeholder, ou remova-os. A cobranca do Basic para.
+- Nao publique a lista de alunos e e-mails neste repositorio, porque ele e
+  publico.
+
+## Pipelines com varias equipes
+
+- O free tier oferece 1 job Microsoft-hosted, compartilhado por todos os
+  projetos da organizacao. Quando as 4 equipes executam ao mesmo tempo, as
+  execucoes entram em fila.
+- Cada execucao leva poucos minutos. Na Parte 6, chame as equipes em
+  sequencia (Basic, Agile, Scrum, CMMI) para evitar espera.
+- Sem billing configurado, a organizacao nova nao recebe o job gratuito e a
+  pipeline falha com mensagem de paralelismo nao concedido.
 
 Nomes sugeridos para os projetos:
 
@@ -44,6 +83,7 @@ indicadores, pipeline e evidencia de entrega.
 
 | Etapa | Tempo |
 | --- | --- |
+| Apresentacao teorica (slides) e demonstracao | 45 min |
 | Contexto e divisao das equipes | 5 min |
 | Acesso aos projetos e primeira pipeline | 10 min |
 | Campos, estimativas e criterios | 15 min |

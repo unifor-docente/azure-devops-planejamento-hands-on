@@ -6,7 +6,7 @@ Simular um projeto real no Azure DevOps usando Boards, backlog, sprints,
 pipelines, consultas e dashboards. O codigo esta em um monorepo publico no
 GitHub para que a equipe concentre o esforco na gestao do projeto.
 
-A pratica da quarta-feira, 13/05/2026, deve ir alem de "criar cards". Cada
+A pratica da terca-feira, 29/09/2026, deve ir alem de "criar cards". Cada
 equipe deve preencher work items com contexto, prioridade, estimativa, criterios
 de aceite, responsaveis, tags, relacionamento e evidencia de pipeline.
 
@@ -22,6 +22,22 @@ de aceite, responsaveis, tags, relacionamento e evidencia de pipeline.
 Os projetos ja foram criados pelo instrutor com o processo correto. Cada equipe
 deve trabalhar dentro do seu projeto, usando a pipeline ja configurada como
 evidencia de entrega.
+
+## Papeis dentro da equipe
+
+Cada equipe tem 6 pessoas. Distribuam os papeis nos primeiros minutos para que
+todos participem, inclusive quem nao e da area de tecnologia:
+
+| Papel | Responsabilidade na pratica |
+| --- | --- |
+| Gerente do projeto | Conduz a priorizacao, a sprint e a apresentacao final. |
+| Product Owner | Define valor, descricao e criterios de aceite dos itens. |
+| Guardiao do backlog | Garante hierarquia correta (pai/filho), estimativas e tags. |
+| Guardiao do board | Atualiza estados, responsaveis e trabalho restante. |
+| Analista de indicadores | Cria as consultas e o dashboard da equipe. |
+| Responsavel pela entrega | Executa a pipeline e registra a evidencia no backlog. |
+
+Todos criam e editam work items; o papel indica quem cuida de cada parte.
 
 ## Ponto de partida da aula
 
@@ -48,8 +64,9 @@ e logs.
 
 Tempo sugerido: 10 minutos.
 
-1. Acesse `https://dev.azure.com/`.
-2. Entre na organizacao indicada pelo instrutor.
+1. Abra o e-mail de convite do Azure DevOps e clique em `Join now`.
+   Entre com o mesmo e-mail que recebeu o convite.
+2. Acesse `https://dev.azure.com/` e entre na organizacao indicada pelo instrutor.
 3. Abra o projeto da sua equipe.
 4. Confirme se o menu Boards esta disponivel.
 5. Acesse Pipelines e abra a primeira execucao criada pelo instrutor.
